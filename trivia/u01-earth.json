@@ -8,7 +8,12 @@
       "tier": "starter",
       "type": "recall",
       "question": "What causes day and night?",
-      "choices": ["Earth spinning", "Earth going around the Sun", "The Sun turning off at night", "Clouds blocking the Sun"],
+      "choices": [
+        "Earth spinning",
+        "Earth going around the Sun",
+        "The Sun turning off at night",
+        "Clouds blocking the Sun"
+      ],
       "answer": "Earth spinning",
       "why": "The Sun always lights one half of Earth. Earth's spin carries us into the lit half (day) and out of it again (night).",
       "followUp": "So what does Earth going around the Sun take instead? (A whole year.)",
@@ -19,9 +24,9 @@
       "lesson": "u01-l03",
       "tier": "starter",
       "type": "number",
-      "question": "About how many hours does it take Earth to spin around once, from one noon to the next?",
+      "question": "About how long is a solar day, the time from one local noon to the next?",
       "answer": "About 24 hours",
-      "why": "That is the length of one solar day.",
+      "why": "A solar day is about 24 hours. It is a little more than one full turn of Earth, because Earth also moves along its orbit during the day.",
       "followUp": "If Earth spun twice as fast, how long would a day be?",
       "source": "OpenStax 4.3"
     },
@@ -30,10 +35,15 @@
       "lesson": "u01-l03",
       "tier": "starter",
       "type": "recall",
-      "question": "In which direction does the Sun rise?",
-      "choices": ["North", "South", "East", "West"],
-      "answer": "East",
-      "why": "Earth spins from west to east, so the Sun seems to come up in the east and go down in the west.",
+      "question": "On which side of the sky does the Sun rise?",
+      "choices": [
+        "The northern horizon",
+        "The southern horizon",
+        "The eastern horizon",
+        "The western horizon"
+      ],
+      "answer": "The eastern horizon",
+      "why": "Earth spins from west to east, so the Sun seems to come up over the eastern horizon and go down over the western one. The exact spot shifts north and south with the seasons.",
       "source": "OpenStax 2.1"
     },
     {
@@ -53,7 +63,10 @@
       "tier": "explorer",
       "type": "predict",
       "question": "It is noon in Texas. Is it day or night in Tokyo, Japan, on the other side of the world?",
-      "choices": ["Day", "Night"],
+      "choices": [
+        "Day",
+        "Night"
+      ],
       "answer": "Night",
       "why": "Tokyo is roughly on the opposite side of Earth, so when Texas faces the Sun, Tokyo faces away. Noon in central Texas is about 2 to 3 a.m. the next day in Tokyo.",
       "source": "OpenStax 4.1"
@@ -65,7 +78,7 @@
       "type": "recall",
       "question": "What is the name of the line on Earth that divides day from night?",
       "answer": "The terminator",
-      "why": "Anyone standing on the terminator is seeing a sunrise or a sunset.",
+      "why": "In the simple model, anyone standing on the terminator is seeing a sunrise or a sunset. In real life the edge is blurred, because Earth's air bends and scatters sunlight into twilight.",
       "followUp": "Is the terminator always in the same place on Earth? (No. It sweeps around as Earth spins.)",
       "source": "OpenStax 4.1"
     },
@@ -85,7 +98,12 @@
       "tier": "challenger",
       "type": "number",
       "question": "About how fast is the ground at Earth's equator moving because of Earth's spin?",
-      "choices": ["About 17 km/h (10 mph)", "About 170 km/h (100 mph)", "About 1,670 km/h (1,040 mph)", "About 16,700 km/h (10,400 mph)"],
+      "choices": [
+        "About 17 km/h (10 mph)",
+        "About 170 km/h (100 mph)",
+        "About 1,670 km/h (1,040 mph)",
+        "About 16,700 km/h (10,400 mph)"
+      ],
       "answer": "About 1,670 km/h (1,040 mph)",
       "why": "The equator is about 40,075 km (24,900 miles) around, and Earth turns once in about 24 hours. 40,075 divided by 24 is about 1,670.",
       "followUp": "If we move that fast, why don't we feel it? (The spin is smooth and steady, and everything around us moves with us.)",
@@ -107,7 +125,12 @@
       "tier": "challenger",
       "type": "recall",
       "question": "Measured against the distant stars, Earth spins once in a little less than 24 hours. About how long?",
-      "choices": ["23 hours 0 minutes", "23 hours 56 minutes", "24 hours 4 minutes", "25 hours"],
+      "choices": [
+        "23 hours 0 minutes",
+        "23 hours 56 minutes",
+        "24 hours 4 minutes",
+        "25 hours"
+      ],
       "answer": "23 hours 56 minutes",
       "why": "That is a sidereal day. A solar day is about 4 minutes longer because Earth also moves along its orbit, so it must turn a little extra to face the Sun again.",
       "source": "OpenStax 4.3"
@@ -121,7 +144,12 @@
       "answer": "Sunrise when the sticker turns into the light, noon when it faces the flashlight, sunset when it turns out of the light, midnight when it faces straight away.",
       "why": "The flashlight only ever lights half the ball. Turning the ball carries the sticker through day and night, just like Earth's spin carries us.",
       "followUp": "Now hold the ball still and walk the flashlight around it. Does the sticker see anything different? (No, which is why scientists needed real evidence, like Foucault's pendulum.)",
-      "materials": ["flashlight or lamp", "ball or orange", "small sticker", "dark room"],
+      "materials": [
+        "flashlight or lamp",
+        "ball or orange",
+        "small sticker",
+        "dark room"
+      ],
       "source": "OpenStax 4.1"
     }
   ]

@@ -14,10 +14,10 @@ status: draft
 This is the pilot, so it runs before Lessons 1.1 and 1.2. The warm-up uses what you already know and the Universe Sandbox orientation (Unit 0).
 
 1. In Universe Sandbox, how do you pause the simulation, and how do you make time run faster?
-2. Which comes up in the morning on the east side of the sky: the Sun, or the Moon, or can it be either?
+2. On which side of the sky does the Sun come up in the morning?
 3. Roughly how long is one day, in hours?
 
-*(Answers: 1. from the Unit 0 orientation; 2. the Sun always rises in the east, and the Moon also rises in the east, at different times on different days; 3. about 24 hours.)*
+*(Answers: 1. from the Unit 0 orientation; 2. over the eastern horizon (the exact spot shifts north and south with the seasons); 3. about 24 hours.)*
 
 ## Hook
 
@@ -29,7 +29,7 @@ This is the pilot, so it runs before Lessons 1.1 and 1.2. The warm-up uses what 
 
 ![Sunlight comes from one side and lights the half of Earth that faces the Sun. The other half is in Earth's own shadow.](img/u01-l03-half-lit.svg)
 
-Earth is a ball, and the Sun shines on it from one side. The half of Earth that faces the Sun has **day**: sunlight reaches the ground there. The half that faces away has **night**: it is in Earth's own shadow. The line that divides the lit half from the dark half is called the **terminator**. Anyone standing on the terminator is seeing a sunrise or a sunset. (OpenStax 4.1)
+Earth is a ball, and the Sun shines on it from one side. The half of Earth that faces the Sun has **day**: sunlight reaches the ground there. The half that faces away has **night**: it is in Earth's own shadow. The line that divides the lit half from the dark half is called the **terminator**. In this simple model, anyone standing on the terminator is seeing a sunrise or a sunset. (Real sunrise and sunset are a little blurrier, because Earth's air bends and scatters sunlight; see "Go deeper.") (OpenStax 4.1)
 
 The Sun never "goes" anywhere at night. It is still shining. It is just shining on the other side of Earth, where people are having their daytime.
 
@@ -39,13 +39,13 @@ The Sun never "goes" anywhere at night. It is still shining. It is just shining 
 
 Earth turns around an imaginary line through the North and South Poles. That line is its **axis**, and the turning is called **rotation**. Earth rotates once about every 24 hours. As it turns, it carries you from the dark half into the lit half (sunrise), across the lit half (midday), into the dark half again (sunset), and through the night until you come back around. (OpenStax 4.1)
 
-One full turn, measured from one noon to the next, is a **solar day**: about 24 hours. (OpenStax 4.3)
+A **solar day** is the time from one local noon to the next, about 24 hours. That is actually a little more than one full turn, for a reason explained in "Go deeper." (OpenStax 4.3)
 
 The ground under you is moving fast. At the equator it travels about 1,670 km per hour (about 1,040 miles per hour). Here in Manor, Texas, which is farther from the equator, it is about 1,450 km per hour (about 900 miles per hour). We don't feel it because the turning is very smooth and steady, and the air, the house, and everything around us move along with us. *(Worked from Earth's equator, about 40,075 km around, turning once in about 23.9 hours; Manor is at about 30° north.)*
 
 ### 3. Why the Sun seems to move across the sky
 
-Earth spins from **west to east**. Seen from above the North Pole, that is counterclockwise. Because we are carried eastward, the Sun appears to move the opposite way: it seems to rise in the east, cross the sky, and set in the west. The Moon and the stars seem to move the same way, for the same reason. This is called **apparent motion**: it is how things look from a spinning Earth, not how they actually move. (OpenStax 2.1, 4.1)
+Earth spins from **west to east**. Seen from above the North Pole, that is counterclockwise. Because we are carried eastward, the Sun appears to move the opposite way: it seems to rise over the eastern horizon, cross the sky, and set over the western horizon. (The exact spot where it rises shifts north and south through the year; that is part of the seasons, in Unit 3.) The Moon and the stars seem to move the same way, for the same reason. This is called **apparent motion**: it is how things look from a spinning Earth, not how they actually move. (OpenStax 2.1, 4.1)
 
 It is like riding a merry-go-round: the playground seems to slide past you the other way, even though it is you who is moving.
 
@@ -92,7 +92,7 @@ Questions Claude may ask (don't read these first):
 - "Where does the Sun go at night?"
 - "Is it night everywhere at the same time?"
 - "Does the Sun move at all?"
-- "Why does the Sun come up on the same side every morning?"
+- "Why does the Sun always come up on the east side?"
 - "Why are some days longer than others?" *(Good answer: that's the seasons, which is Unit 3. For now, the spin explains day and night; the tilt explains why their lengths change.)*
 - "Does the Moon have day and night too?"
 </details>
