@@ -19,7 +19,7 @@ function worldTexture() {
 }
 export function globeView(canvas) {
   const ctx=canvas.getContext('2d'), texture=worldTexture();
-  const radius=99, size=radius*2, centerX=270, centerY=135;
+  const radius=99, size=radius*2, centerX=210, centerY=135;
   const image=ctx.createImageData(size,size), pixels=[];
   const cos=Math.cos(70*rad), sin=Math.sin(70*rad);
   // Orthographic camera at 70° N. Cache each visible pixel's surface normal and map row.
@@ -33,8 +33,8 @@ export function globeView(canvas) {
     pixels.push({offset:4*(row*size+col),east,polar,lon,texRow});
   }
   return (sun,lit)=>{
-    const cameraLon=sun.lon+90, declination=sun.lat*rad;
-    const sunEast=-Math.cos(declination), sunNorth=Math.sin(declination);
+    const cameraLon=sun.lon-90, declination=sun.lat*rad;
+    const sunEast=Math.cos(declination), sunNorth=Math.sin(declination);
     ctx.fillStyle='#101e31';ctx.fillRect(0,0,canvas.width,canvas.height);
     for(const p of pixels) {
       const light=p.east*sunEast+p.polar*sunNorth;
@@ -50,8 +50,25 @@ export function globeView(canvas) {
     const y=centerY-radius*(cos*Math.sin(lat)-sin*Math.cos(lat)*Math.cos(angle));
     ctx.fillStyle=lit?'#ffda6d':'#91bfff';ctx.strokeStyle='#111';ctx.lineWidth=2;
     ctx.beginPath();ctx.arc(x,y,6,0,2*Math.PI);ctx.fill();ctx.stroke();
-    label(ctx,'Manor (you are here)',x+(x>centerX?-9:9),y-9,x>centerX?'right':'left');
-    label(ctx,'Sunlight comes',10,92);label(ctx,'from this way →',10,114);
+    label(ctx,'Manor (you are here)',x+(x>centerX?-9:9),y<60 ? y+23 : y-9,x>centerX?'right':'left');
+    const sunX = 431, sunY = centerY;
+    ctx.fillStyle = '#ffdf79';
+    ctx.beginPath();
+    ctx.arc(sunX, sunY, 13, 0, 2*Math.PI);
+    ctx.fill();
+    ctx.strokeStyle = '#ffdf79';
+    ctx.lineWidth = 2;
+    for (const offset of [-9, 0, 9]) {
+      const rayY = sunY + offset;
+      ctx.beginPath();
+      ctx.moveTo(sunX-20, rayY);
+      ctx.lineTo(353, rayY);
+      ctx.lineTo(359, rayY-3);
+      ctx.moveTo(353, rayY);
+      ctx.lineTo(359, rayY+3);
+      ctx.stroke();
+    }
+    label(ctx,'Sunlight',sunX,sunY+39,'center');
     label(ctx,'↺ West to east',centerX,25,'center');
   };
 }
@@ -74,7 +91,14 @@ export function backyard(canvas,position,lit,beforeNoon) {
   }
   const x=(azimuth-45)/90*w, top=horizon-(apparentAltitude+.2667)*horizon/35;
   if(lit && x>=0 && x<=w && top>=-1) {
-    ctx.fillStyle='#ffe398';ctx.beginPath();ctx.arc(x,top+10,10,0,Math.PI*2);ctx.fill();
+    ctx.save();
+    ctx.shadowColor = '#fff5be';
+    ctx.shadowBlur = 8;
+    ctx.fillStyle = '#fffdf0';
+    ctx.beginPath();
+    ctx.arc(x,top+10,10,0,Math.PI*2);
+    ctx.fill();
+    ctx.restore();
   } else if(lit) label(ctx,beforeNoon?'↑ The Sun is up here':'The Sun is behind you, in the west',w/2,22,'center');
   ctx.fillStyle='#1e403a';ctx.fillRect(0,horizon,w,h-horizon);
   for(const [s,xp] of [['NE',16],['E',w/2],['SE',w-18]]) label(ctx,s,xp,horizon+25,'center');

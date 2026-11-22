@@ -43,7 +43,7 @@ with webdriver.Chrome(options=options) as browser:
         browser.find_elements(By.CSS_SELECTOR, "#ticks button")[1].click()
         assert "Sunrise!" in browser.find_element(By.ID, "phase").text
         capture(date + "-sunrise")
-    for clock in ["11:00", "17:00"]:
+    for clock in ["07:33", "07:35", "11:00", "17:00"]:
         open_view("2027-03-20", clock)
         capture("equinox-" + clock.replace(":", ""))
     browser.find_element(By.ID, "play").click()
