@@ -10,6 +10,10 @@ It has four parts:
 
 The full design is in [`PLAN.md`](PLAN.md). The agents' rules are in [`AGENTS.md`](AGENTS.md).
 
+## Opening the website
+
+Once GitHub Pages is turned on, the site rebuilds on every merge to `main` and lives at <https://beloo2010.github.io/learn-astro/>. The workflow in `.github/workflows/pages.yml` publishes only `site/`, `lessons/`, `trivia/`, and `course/progress.md`. It never publishes `journal/`.
+
 ## Running the website locally
 
 ```bash

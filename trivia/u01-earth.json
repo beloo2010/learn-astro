@@ -1,0 +1,156 @@
+{
+  "unit": 1,
+  "title": "What is Earth?",
+  "items": [
+    {
+      "id": "u01-l03-q01",
+      "lesson": "u01-l03",
+      "tier": "starter",
+      "type": "recall",
+      "question": "What causes day and night?",
+      "choices": [
+        "Earth spinning",
+        "Earth going around the Sun",
+        "The Sun turning off at night",
+        "Clouds blocking the Sun"
+      ],
+      "answer": "Earth spinning",
+      "why": "The Sun always lights one half of Earth. Earth's spin carries us into the lit half (day) and out of it again (night).",
+      "followUp": "So what does Earth going around the Sun take instead? (A whole year.)",
+      "source": "OpenStax 4.1"
+    },
+    {
+      "id": "u01-l03-q02",
+      "lesson": "u01-l03",
+      "tier": "starter",
+      "type": "number",
+      "question": "About how long is a solar day, the time from one local noon to the next?",
+      "answer": "About 24 hours",
+      "why": "A solar day is about 24 hours. It is a little more than one full turn of Earth, because Earth also moves along its orbit during the day.",
+      "followUp": "If Earth spun twice as fast, how long would a day be?",
+      "source": "OpenStax 4.3"
+    },
+    {
+      "id": "u01-l03-q03",
+      "lesson": "u01-l03",
+      "tier": "starter",
+      "type": "recall",
+      "question": "On which side of the sky does the Sun rise?",
+      "choices": [
+        "The northern horizon",
+        "The southern horizon",
+        "The eastern horizon",
+        "The western horizon"
+      ],
+      "answer": "The eastern horizon",
+      "why": "Earth spins from west to east, so the Sun seems to come up over the eastern horizon and go down over the western one. The exact spot shifts north and south with the seasons.",
+      "source": "OpenStax 2.1"
+    },
+    {
+      "id": "u01-l03-q04",
+      "lesson": "u01-l03",
+      "tier": "starter",
+      "type": "explain",
+      "question": "Where does the Sun go at night?",
+      "answer": "Nowhere. It keeps shining on the other side of Earth, where it is daytime.",
+      "why": "At night our side of Earth has turned away from the Sun, so we are in Earth's own shadow.",
+      "followUp": "Who is having their daytime right now while we have night?",
+      "source": "OpenStax 4.1"
+    },
+    {
+      "id": "u01-l03-q05",
+      "lesson": "u01-l03",
+      "tier": "explorer",
+      "type": "predict",
+      "question": "It is noon in Texas. Is it day or night in Tokyo, Japan, on the other side of the world?",
+      "choices": [
+        "Day",
+        "Night"
+      ],
+      "answer": "Night",
+      "why": "Tokyo is roughly on the opposite side of Earth, so when Texas faces the Sun, Tokyo faces away. Noon in central Texas is about 2 to 3 a.m. the next day in Tokyo.",
+      "source": "OpenStax 4.1"
+    },
+    {
+      "id": "u01-l03-q06",
+      "lesson": "u01-l03",
+      "tier": "explorer",
+      "type": "recall",
+      "question": "What is the name of the line on Earth that divides day from night?",
+      "answer": "The terminator",
+      "why": "In the simple model, anyone standing on the terminator is seeing a sunrise or a sunset. In real life the edge is blurred, because Earth's air bends and scatters sunlight into twilight.",
+      "followUp": "Is the terminator always in the same place on Earth? (No. It sweeps around as Earth spins.)",
+      "source": "OpenStax 4.1"
+    },
+    {
+      "id": "u01-l03-q07",
+      "lesson": "u01-l03",
+      "tier": "explorer",
+      "type": "order",
+      "question": "Put these in order for one place on Earth as it spins, starting from sunrise: noon, midnight, sunrise, sunset.",
+      "answer": "Sunrise, noon, sunset, midnight",
+      "why": "The spin carries the place into the light (sunrise), across the middle of the lit half (noon), out of the light (sunset), and through the middle of the dark half (midnight).",
+      "source": "OpenStax 4.1"
+    },
+    {
+      "id": "u01-l03-q08",
+      "lesson": "u01-l03",
+      "tier": "challenger",
+      "type": "number",
+      "question": "About how fast is the ground at Earth's equator moving because of Earth's spin?",
+      "choices": [
+        "About 17 km/h (10 mph)",
+        "About 170 km/h (100 mph)",
+        "About 1,670 km/h (1,040 mph)",
+        "About 16,700 km/h (10,400 mph)"
+      ],
+      "answer": "About 1,670 km/h (1,040 mph)",
+      "why": "The equator is about 40,075 km (24,900 miles) around, and Earth turns once in about 24 hours. 40,075 divided by 24 is about 1,670.",
+      "followUp": "If we move that fast, why don't we feel it? (The spin is smooth and steady, and everything around us moves with us.)",
+      "source": "OpenStax 4.1"
+    },
+    {
+      "id": "u01-l03-q09",
+      "lesson": "u01-l03",
+      "tier": "challenger",
+      "type": "explain",
+      "question": "From the ground, 'the Sun goes around Earth' and 'Earth spins' look the same. What is one piece of evidence that Earth really spins?",
+      "answer": "Foucault's pendulum, whose swing slowly turns because the floor turns under it; or photos of the whole Earth from space (NASA's EPIC camera) that show Earth rotating.",
+      "why": "A model or a demonstration can only show what spinning would look like. The pendulum and the photos are measurements of the real Earth.",
+      "source": "OpenStax 4.1; https://www.nasa.gov/news-release/daily-views-of-earth-available-on-new-nasa-website"
+    },
+    {
+      "id": "u01-l03-q10",
+      "lesson": "u01-l03",
+      "tier": "challenger",
+      "type": "recall",
+      "question": "Measured against the distant stars, Earth spins once in a little less than 24 hours. About how long?",
+      "choices": [
+        "23 hours 0 minutes",
+        "23 hours 56 minutes",
+        "24 hours 4 minutes",
+        "25 hours"
+      ],
+      "answer": "23 hours 56 minutes",
+      "why": "That is a sidereal day. A solar day is about 4 minutes longer because Earth also moves along its orbit, so it must turn a little extra to face the Sun again.",
+      "source": "OpenStax 4.3"
+    },
+    {
+      "id": "u01-l03-q11",
+      "lesson": "u01-l03",
+      "tier": "starter",
+      "type": "demonstrate",
+      "question": "Show me day and night! Use a flashlight as the Sun and a ball with a sticker on it as Earth. Turn the ball slowly and tell me when the sticker has sunrise, noon, sunset, and midnight.",
+      "answer": "Sunrise when the sticker turns into the light, noon when it faces the flashlight, sunset when it turns out of the light, midnight when it faces straight away.",
+      "why": "The flashlight only ever lights half the ball. Turning the ball carries the sticker through day and night, just like Earth's spin carries us.",
+      "followUp": "Now hold the ball still and walk the flashlight around it. Does the sticker see anything different? (No, which is why scientists needed real evidence, like Foucault's pendulum.)",
+      "materials": [
+        "flashlight or lamp",
+        "ball or orange",
+        "small sticker",
+        "dark room"
+      ],
+      "source": "OpenStax 4.1"
+    }
+  ]
+}

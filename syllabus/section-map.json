@@ -167,7 +167,7 @@
     "chapter": 3,
     "url": "https://openstax.org/books/astronomy-2e/pages/3-6-gravity-with-more-than-two-bodies",
     "unit": 6,
-    "coverage": "optional",
+    "coverage": "light",
     "lessons": []
   },
   {
@@ -203,7 +203,7 @@
     "chapter": 4,
     "url": "https://openstax.org/books/astronomy-2e/pages/4-4-the-calendar",
     "unit": 3,
-    "coverage": "optional",
+    "coverage": "light",
     "lessons": []
   },
   {
@@ -266,7 +266,7 @@
     "chapter": 5,
     "url": "https://openstax.org/books/astronomy-2e/pages/5-4-the-structure-of-the-atom",
     "unit": 7,
-    "coverage": "optional",
+    "coverage": "light",
     "lessons": []
   },
   {
@@ -365,7 +365,7 @@
     "chapter": 7,
     "url": "https://openstax.org/books/astronomy-2e/pages/7-3-dating-planetary-surfaces",
     "unit": 10,
-    "coverage": "optional",
+    "coverage": "light",
     "lessons": []
   },
   {
@@ -410,7 +410,7 @@
     "chapter": 8,
     "url": "https://openstax.org/books/astronomy-2e/pages/8-4-life-chemical-evolution-and-climate-change",
     "unit": 1,
-    "coverage": "optional",
+    "coverage": "light",
     "lessons": []
   },
   {
@@ -644,7 +644,7 @@
     "chapter": 14,
     "url": "https://openstax.org/books/astronomy-2e/pages/14-2-meteorites-stones-from-heaven",
     "unit": 13,
-    "coverage": "optional",
+    "coverage": "light",
     "lessons": []
   },
   {
@@ -725,7 +725,7 @@
     "chapter": 16,
     "url": "https://openstax.org/books/astronomy-2e/pages/16-2-mass-energy-and-the-theory-of-relativity",
     "unit": 9,
-    "coverage": "optional",
+    "coverage": "light",
     "lessons": []
   },
   {
@@ -743,7 +743,7 @@
     "chapter": 16,
     "url": "https://openstax.org/books/astronomy-2e/pages/16-4-the-solar-interior-observations",
     "unit": 9,
-    "coverage": "optional",
+    "coverage": "light",
     "lessons": []
   },
   {
@@ -761,7 +761,7 @@
     "chapter": 17,
     "url": "https://openstax.org/books/astronomy-2e/pages/17-2-colors-of-stars",
     "unit": 14,
-    "coverage": "optional",
+    "coverage": "light",
     "lessons": []
   },
   {
@@ -842,7 +842,7 @@
     "chapter": 19,
     "url": "https://openstax.org/books/astronomy-2e/pages/19-3-variable-stars-one-key-to-cosmic-distances",
     "unit": 16,
-    "coverage": "optional",
+    "coverage": "light",
     "lessons": []
   },
   {
