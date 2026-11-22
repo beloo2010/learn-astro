@@ -150,7 +150,7 @@ async function render() {
     if(route==='map') await map(view);
     else if(route==='lessons') await lessons(view);
     else if(route==='quiz') await quiz(view);
-    else if(route==='lab') view.append(el('p','Manor Sunrise is the first planned Sky Lab activity.'));
+    else if(route==='lab') view.append(link('Explore Manor sunrise','manor-sunrise/'));
     else {
       const grid=el('div');grid.className='grid';
       for(const [id,title] of Object.entries(sections)) {

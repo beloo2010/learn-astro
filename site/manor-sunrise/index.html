@@ -1,0 +1,13 @@
+<!doctype html>
+<html lang="en"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Manor Sunrise · Sky Lab</title><link rel="stylesheet" href="../style.css"><link rel="stylesheet" href="sunrise.css">
+<main><a href="../#lab">← Sky Lab</a>
+<h1>Manor sunrise</h1><p id="date"></p>
+<div class="views"><figure><figcaption>Earth from space</figcaption><canvas id="globe" width="480" height="260" aria-label="Earth rotates while sunlight comes from the right. The marker shows Manor."></canvas>
+<small>The Sun is about 150 million km (93 million miles) away.</small></figure>
+<figure><figcaption>Looking east from Manor</figcaption><canvas id="sky" width="480" height="260" aria-label="Backyard view facing east"></canvas><small id="phase"></small></figure></div>
+<div class="readout"><strong id="clock"></strong><span id="rise"></span><span id="count"></span></div>
+<label for="time">Time of day</label><input id="time" type="range" min="0" step="1">
+<div class="ticks" id="ticks"></div><button id="play" type="button">Play</button>
+<p class="caption">This is a picture of the idea, not proof. <a href="../#lesson/lessons/u01-earth/u01-l03-day-and-night.md">See “How do we know?” in the lesson.</a></p>
+</main><script type="module" src="sunrise.mjs"></script></html>
