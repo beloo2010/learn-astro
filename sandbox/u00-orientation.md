@@ -90,7 +90,7 @@ Universe Sandbox is a **simulation**: a computer model that calculates how objec
 
 ## Sources
 
-- **[S1]** Universe Sandbox, "Controls Reference." Note: the page says it covers *Universe Sandbox Legacy*, and points to Home > Help for the current app. https://universesandbox.com/help/controls
+- **[S1]** Universe Sandbox, "Controls Reference." Note: the page says it covers *Universe Sandbox Legacy*, and points to Home > Help for the current app. https://universesandbox.com/support/controls/
 - **[S2]** Universe Sandbox Wiki, "Interface" (snapshot oldid=2232; undated; warns the UI "changes often with updates"). https://universesandbox.fandom.com/wiki/Interface?oldid=2232
 - **[S3]** Universe Sandbox Wiki, "Keyboard Controls" (snapshot oldid=1820; undated). https://universesandbox.fandom.com/wiki/Keyboard_Controls?oldid=1820
 - **[S4]** Universe Sandbox Wiki, "Camera" (undated). https://universesandbox.gamepedia.com/Camera
