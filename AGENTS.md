@@ -6,9 +6,13 @@ Read `PLAN.md` for the full design. This file holds the working rules.
 
 ## 1. Start of every session
 
-1. Read `course/progress.md` (resume pointer, revisit list).
-2. Read the open GitHub Issues that carry your `owner:` label.
-3. Read the handoff note in the most recent merged PR.
+1. Read your inbox issue and act on every comment that came after your last reply there: **Codex reads #20 "Inbox: messages for Codex"**, and **Claude reads #21 "Inbox: messages for Claude"**. Reply in the inbox with what you did, and link the PR or issue.
+2. Read `course/progress.md` (resume pointer, revisit list).
+3. Read the open GitHub Issues that carry your `owner:` label.
+4. Review any open PRs from the other agent that don't have your review yet (see §3a).
+5. Read the handoff note in the most recent merged PR.
+
+**Asking the other agent for something:** the agents never talk directly. Post a comment in the other agent's inbox issue that says what you need and links the PR or issue. Then Belu only has to start that agent's session.
 
 ## 2. Ownership (one owner per path; the other agent reviews)
 

@@ -104,7 +104,8 @@
 <p class="note">Facts about the 1851 Panthéon pendulum: wire about 67 m (220 ft) and ball about 28 kg (62 lb), per APS News and Britannica (OpenStax rounds these to 60 m and 25 kg). One swing there and back takes about 16 seconds, worked out from the wire's length. The swing turns by 360° × sin(latitude) in one star day (23.9 hours): a full circle in about 24 hours at the poles, about 32 hours in Paris (about 11° an hour), and never at the equator. Sources: OpenStax <em>Astronomy 2e</em> 4.1; APS News, "February 3, 1851: Léon Foucault Demonstrates That Earth Rotates"; Encyclopaedia Britannica, "Foucault pendulum".</p>
 
 <script type="module">
-import { fitCanvas, slider, player, DEG, SIDEREAL_DAY_H, fmt, dot, label } from '../../_kit/widget.js';
+import { fitCanvas, slider, player, DEG, fmt, dot, label } from '../../_kit/widget.js';
+import { rateDegPerHour as rateAt, swingBearingOnFloor, swingBearingOnScreen, floorTurnOnScreen, distanceToSwingLine } from './foucault-model.js';
 
 // ---------- Tabs ----------
 const tabs = [...document.querySelectorAll('[role=tab]')];
@@ -153,15 +154,14 @@ const topState = { lat: 49, hours: 0, lapse: 2, frame: 'floor', pegs: [], swingT
 const PEGS = 36;
 function resetPegs() { topState.hours = 0; topState.pegs = Array.from({ length: PEGS }, (_, i) => ({ angle: i * 360 / PEGS, down: false })); }
 resetPegs();
-const rateDegPerHour = () => 360 * Math.sin(topState.lat * DEG) / SIDEREAL_DAY_H; // + = clockwise from above
-const swingAngle = () => 90 - rateDegPerHour() * topState.hours;                 // in the floor's frame, degrees
-const floorAngle = () => (topState.frame === 'stars' ? rateDegPerHour() * topState.hours : 0);
+// Angle maths lives in foucault-model.js (tested by foucault-model.test.mjs).
+const rateDegPerHour = () => rateAt(topState.lat);
 
 const topView = fitCanvas(document.getElementById('top'), 0.8, 340, (ctx, w, h) => {
   ctx.clearRect(0, 0, w, h);
   const cx = w / 2, cy = h / 2, R = Math.min(w, h) * 0.42;
-  const rot = floorAngle() * DEG; // in the star view, the floor turns and the swing stays put
-  ctx.save(); ctx.translate(cx, cy); ctx.rotate(-rot);
+  // In the stars view the floor turns under the swing; in the floor view it stays still.
+  ctx.save(); ctx.translate(cx, cy); ctx.rotate(floorTurnOnScreen(topState.lat, topState.hours, topState.frame) * DEG);
   // Floor
   dot(ctx, 0, 0, R * 1.08, '#3a3226');
   ctx.strokeStyle = 'rgba(255,255,255,.15)'; ctx.lineWidth = 1;
@@ -178,7 +178,7 @@ const topView = fitCanvas(document.getElementById('top'), 0.8, 340, (ctx, w, h) 
   }
   ctx.restore();
   // Swing line and bob, in screen space
-  const sa = (swingAngle() - floorAngle()) * DEG;
+  const sa = swingBearingOnScreen(topState.lat, topState.hours, topState.frame) * DEG;
   const dx = Math.sin(sa), dy = -Math.cos(sa);
   ctx.strokeStyle = 'rgba(255,230,128,.5)'; ctx.setLineDash([5, 4]); ctx.lineWidth = 2;
   ctx.beginPath(); ctx.moveTo(cx - dx * R, cy - dy * R); ctx.lineTo(cx + dx * R, cy + dy * R); ctx.stroke(); ctx.setLineDash([]);
@@ -201,10 +201,9 @@ function topReadout() {
   document.getElementById('aboveTitle').textContent = topState.frame === 'stars' ? 'Seen from the stars: the floor turns under the swing' : 'Looking down on the floor';
 }
 function knockPegs() {
-  const line = swingAngle();
+  const line = swingBearingOnFloor(topState.lat, topState.hours);
   for (const p of topState.pegs) {
-    const d = Math.abs(((p.angle - line) % 180 + 270) % 180 - 90); // distance to the swing line, either end
-    if (d < 1.2 && topState.hours > 0.05) p.down = true;
+    if (distanceToSwingLine(p.angle, line) < 1.2 && topState.hours > 0.05) p.down = true;
   }
 }
 slider('lat', v => v === 0 ? 'equator' : `${Math.abs(v)}° ${v > 0 ? 'north' : 'south'}`, v => { topState.lat = v; resetPegs(); topReadout(); topView.redraw(); });
