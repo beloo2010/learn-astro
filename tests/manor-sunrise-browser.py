@@ -32,7 +32,8 @@ with webdriver.Chrome(options=options) as browser:
     def open_view(date, clock=""):
         browser.get(base + f"manor-sunrise/?date={date}&time={clock}")
         wait.until(lambda b: b.find_element(By.ID, "clock").text)
-        assert browser.execute_script("return document.documentElement.scrollWidth <= innerWidth && document.documentElement.scrollHeight <= innerHeight")
+        dimensions = browser.execute_script("return [innerWidth, innerHeight, document.documentElement.scrollWidth, document.documentElement.scrollHeight]")
+        assert dimensions[2] <= dimensions[0] and dimensions[3] <= dimensions[1], dimensions
 
     def capture(name):
         browser.save_screenshot(str(captures / (name + ".png")))
