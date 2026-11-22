@@ -29,6 +29,6 @@ Tell Claude **"Let us continue."** Claude reads [`course/progress.md`](course/pr
 
 | Who | Role |
 |---|---|
-| Belu | Learner, teacher to the kids, approves plans, merges PRs |
-| Claude | Lessons, trivia, Universe Sandbox walkthroughs, live tutoring, tool specs, science review |
+| Belu | Learner, teacher to the kids, sets direction, decides scope changes |
+| Claude | Reviews and merges all PRs; lessons, trivia, Universe Sandbox walkthroughs, live tutoring, tool specs, science review |
 | Codex | Website, Sky Lab code, textbook section map, automated checks |
