@@ -1,7 +1,7 @@
 # AGENTS.md: Rules for every AI agent working in this repo
 
 This repo is a personal astronomy course for Belu (an adult beginner) and his children (about ages 7, 9, and 11).
-Two agents work here: **Claude** (Anthropic) and **ChatGPT Codex** (OpenAI). **Belu** approves plans and merges pull requests.
+Two agents work here: **Claude** (Anthropic) and **ChatGPT Codex** (OpenAI). **Claude** is also the merge owner. **Belu** sets direction and decides scope changes.
 Read `PLAN.md` for the full design. This file holds the working rules.
 
 ## 1. Start of every session
@@ -21,7 +21,7 @@ Read `PLAN.md` for the full design. This file holds the working rules.
 | `sandbox/` (Universe Sandbox walkthroughs) | Claude | Belu (verified live) |
 | `specs/` (Sky Lab module specs and acceptance tests) | Claude | Codex (feasibility) |
 | `course/`, `journal/` (progress and Belu's teach-backs) | Claude | none |
-| `PLAN.md`, `AGENTS.md`, `templates/` | Shared: change only through a PR that both agents review | Belu approves |
+| `PLAN.md`, `AGENTS.md`, `templates/` | Shared: change only through a PR | The other agent; Belu for scope changes |
 
 Do not edit a path you don't own. If you need a change there, open an Issue labeled with the owner.
 
@@ -29,7 +29,8 @@ Do not edit a path you don't own. If you need a change there, open an Issue labe
 
 - Branches: `claude/<short-topic>` or `codex/<short-topic>`.
 - One topic per PR. Keep PRs small enough to review in one sitting.
-- Never push to `main`. Belu merges.
+- Never push to `main`. All changes arrive by PR.
+- **Claude merges all PRs** (squash merge), following the merge rules below.
 - Issues are labeled `owner:claude` or `owner:codex`, plus one of `content`, `tool`, `infra`, `sandbox`, `review`.
 - Every PR description ends with a **Handoff** section:
 
@@ -39,6 +40,23 @@ Do not edit a path you don't own. If you need a change there, open an Issue labe
   - Please check: ...
   - Next: ...
   ```
+
+## 3a. Review and merge rules
+
+**Codex PRs:** Claude reviews them. Claude merges once the PR meets its issue's acceptance criteria and its checks pass. If changes are needed, Claude leaves a PR comment listing exactly what to fix, and Codex pushes fixes to the same branch.
+
+**Claude PRs:** Codex reviews them in its next session and leaves a comment that starts with `Reviewed:` or `Changes requested:`. Claude merges after a `Reviewed:` comment. Exceptions, which Claude may merge without waiting for Codex:
+- Small fixes, such as typos, links, or deleting files that are no longer needed
+- `course/` and `journal/` updates from live tutoring sessions
+- Universe Sandbox walkthroughs verified live with Belu
+
+**Escalate to Belu instead of merging** when a PR:
+- Changes the course scope, the unit order, or the division of work
+- Deletes lessons, trivia, or journal content
+- Adds a paid service, external account, or new data leaving the repo
+- Has an unresolved disagreement between the two agents
+
+Claude tells Belu what it merged in its session summary.
 
 ## 4. Content standards (lessons and trivia)
 

@@ -231,7 +231,8 @@ Each area has a single owner, so the two agents never edit the same files at the
 | Universe Sandbox walkthroughs | **Claude** | Belu (live) | Claude can watch Belu's screen through the desktop app to verify steps; Codex cannot |
 | Live tutoring: teach-back, child-style questions, pacing, progress and journal updates | **Claude** | none | Conversational and adaptive |
 | Tool specifications and science accuracy reviews | **Claude** | Codex (feasibility) | Defines what each tool must teach and the values it must match |
-| Approving plans and merging changes | **Belu** | none | The final decision-maker |
+| Reviewing and merging all PRs (see `AGENTS.md` §3a) | **Claude** | Codex reviews Claude's PRs | Belu delegated merging on 2026-11-22 |
+| Direction, scope changes, escalations | **Belu** | none | The final decision-maker |
 
 Codex has the larger share of the building work. Claude has the teaching, the content, and live sessions with Belu.
 
@@ -240,7 +241,7 @@ Codex has the larger share of the building work. Claude has the teaching, the co
 - **GitHub is the shared memory.** The agents never talk directly; Belu starts each one.
 - Tasks are tracked as **GitHub Issues** labeled `owner:claude` or `owner:codex`.
 - Work happens on branches named `claude/...` or `codex/...` and arrives as a **pull request**.
-- **The other agent reviews each pull request, and Belu merges it.**
+- **The other agent reviews each pull request, and Claude merges it** according to the rules in `AGENTS.md` §3a. Scope changes are escalated to Belu.
 - `AGENTS.md` holds the rules: file ownership, the trivia schema, the lesson template, wording standards, and the requirement that every factual claim cites an OpenStax section or another reliable source.
 - Each pull request description ends with a **handoff note** saying what changed, what to check, and what comes next.
 - Every session begins by reading `course/progress.md` and the open issues.
