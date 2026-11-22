@@ -1,0 +1,163 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Earth's axis, poles and equator</title>
+<link rel="stylesheet" href="../../_kit/widget.css">
+</head>
+<body>
+<h1>Earth's axis, poles and equator</h1>
+<p class="lede">Drag the globe to turn it. Move the red dot to see how far, and how fast, the spin carries you.</p>
+
+<div class="stage">
+  <div class="view">
+    <h2>Earth (not to scale)</h2>
+    <canvas id="globe" aria-label="A globe showing Earth's axis, the North and South Poles, the equator, and a red dot on its circle of latitude"></canvas>
+  </div>
+</div>
+
+<div class="controls">
+  <div class="control">
+    <label for="lat">Where you stand (distance from the equator)</label>
+    <input id="lat" type="range" min="0" max="90" step="1" value="30">
+    <output for="lat"></output>
+    <div class="row" role="group" aria-label="Places">
+      <button data-lat="0">Equator</button>
+      <button data-lat="30">Manor, Texas</button>
+      <button data-lat="49">Paris</button>
+      <button data-lat="90">North Pole</button>
+    </div>
+  </div>
+  <div class="control">
+    <span class="name">Show</span>
+    <label class="check"><input id="showAxis" type="checkbox" checked> Axis and poles</label>
+    <label class="check"><input id="showEquator" type="checkbox" checked> Equator</label>
+    <label class="check"><input id="showGrid" type="checkbox"> Other lines of latitude</label>
+    <div class="row"><button id="play">Play</button><span class="note">spin Earth</span></div>
+  </div>
+</div>
+
+<div class="readout" id="readout" aria-live="polite"></div>
+
+<ul class="try">
+  <li>Press <strong>Equator</strong>, then <strong>North Pole</strong>. Which one travels farther in one spin?</li>
+  <li>Predict: would you move faster in Manor or in Paris? Then check.</li>
+</ul>
+<p class="note">Speeds use Earth's equator, about 40,075 km (24,900 miles) around, and one turn every 23.9 hours. Sources: OpenStax <em>Astronomy 2e</em> 4.1 and 4.3.</p>
+
+<script type="module">
+import { fitCanvas, slider, toggle, player, DEG, SIDEREAL_DAY_H, EQUATOR_KM, KM_PER_MILE, fmt, dot, label } from '../../_kit/widget.js';
+
+const state = { lat: 30, spin: 0.6, tilt: 22 * DEG, axis: true, equator: true, grid: false };
+const canvas = document.getElementById('globe');
+
+// Orthographic projection of a point on the unit sphere (lat, lon in radians).
+function project(lat, lon, cx, cy, R) {
+  const x = Math.cos(lat) * Math.sin(lon + state.spin);
+  const y = Math.sin(lat);
+  const z = Math.cos(lat) * Math.cos(lon + state.spin);
+  const y2 = y * Math.cos(state.tilt) - z * Math.sin(state.tilt);
+  const z2 = z * Math.cos(state.tilt) + y * Math.sin(state.tilt);
+  return { X: cx + R * x, Y: cy - R * y2, front: z2 >= 0 };
+}
+function circleOfLatitude(ctx, lat, cx, cy, R, color, width) {
+  // Draw back half faint and dashed, front half solid.
+  for (const front of [false, true]) {
+    ctx.beginPath();
+    let pen = false;
+    for (let i = 0; i <= 180; i++) {
+      const p = project(lat, (i / 180) * 2 * Math.PI, cx, cy, R);
+      if (p.front === front) { pen ? ctx.lineTo(p.X, p.Y) : ctx.moveTo(p.X, p.Y); pen = true; } else pen = false;
+    }
+    ctx.setLineDash(front ? [] : [4, 4]);
+    ctx.globalAlpha = front ? 1 : 0.35;
+    ctx.strokeStyle = color; ctx.lineWidth = width; ctx.stroke();
+  }
+  ctx.setLineDash([]); ctx.globalAlpha = 1;
+}
+
+const view = fitCanvas(canvas, 0.62, 360, (ctx, w, h) => {
+  ctx.clearRect(0, 0, w, h);
+  const R = Math.min(h * 0.36, w * 0.3), cx = w / 2, cy = h / 2;
+  // Globe body with soft shading
+  const g = ctx.createRadialGradient(cx - R * 0.3, cy - R * 0.3, R * 0.1, cx, cy, R);
+  g.addColorStop(0, '#4fa3e8'); g.addColorStop(1, '#1d4e86');
+  ctx.beginPath(); ctx.arc(cx, cy, R, 0, 2 * Math.PI); ctx.fillStyle = g; ctx.fill();
+  // Meridians for a sense of turning
+  ctx.strokeStyle = 'rgba(255,255,255,.18)'; ctx.lineWidth = 1;
+  for (let m = 0; m < 12; m++) {
+    ctx.beginPath(); let pen = false;
+    for (let i = -90; i <= 90; i += 3) {
+      const p = project(i * DEG, m * 30 * DEG, cx, cy, R);
+      if (p.front) { pen ? ctx.lineTo(p.X, p.Y) : ctx.moveTo(p.X, p.Y); pen = true; } else pen = false;
+    }
+    ctx.stroke();
+  }
+  if (state.grid) for (const l of [-60, -30, 30, 60]) circleOfLatitude(ctx, l * DEG, cx, cy, R, 'rgba(255,255,255,.45)', 1);
+  if (state.equator) {
+    circleOfLatitude(ctx, 0, cx, cy, R, '#ffcc33', 3);
+    label(ctx, 'equator', cx + R + 8, cy + R * 0.12, '#ffcc33');
+  }
+  // The reader's circle and dot
+  const lat = state.lat * DEG;
+  if (state.lat < 90) circleOfLatitude(ctx, lat, cx, cy, R, '#ff6b6b', 2);
+  const you = project(lat, -0.6, cx, cy, R); // fixed on Earth, so it rides around with the spin
+  if (you.front || state.lat === 90) dot(ctx, you.X, you.Y, 7, '#ff6b6b');
+  if (state.axis) {
+    const n = project(90 * DEG, 0, cx, cy, R), s = project(-90 * DEG, 0, cx, cy, R);
+    const dx = (n.X - s.X) / 2, dy = (n.Y - s.Y) / 2;
+    ctx.strokeStyle = '#fff'; ctx.lineWidth = 2;
+    ctx.beginPath(); ctx.moveTo(cx + dx * 1.35, cy + dy * 1.35); ctx.lineTo(n.X, n.Y); ctx.stroke();
+    ctx.beginPath(); ctx.moveTo(s.X, s.Y); ctx.lineTo(cx - dx * 1.35, cy - dy * 1.35); ctx.stroke();
+    ctx.setLineDash([4, 4]); ctx.globalAlpha = .5;
+    ctx.beginPath(); ctx.moveTo(n.X, n.Y); ctx.lineTo(s.X, s.Y); ctx.stroke();
+    ctx.setLineDash([]); ctx.globalAlpha = 1;
+    dot(ctx, n.X, n.Y, 4, '#fff');
+    label(ctx, 'North Pole', n.X + 10, n.Y - 4);
+    label(ctx, 'South Pole', s.X + 10, s.Y + 6);
+    label(ctx, 'axis', cx + dx * 1.35 + 6, cy + dy * 1.35, '#fff');
+    // spin arrow around the top of the axis (west to east)
+    const ax = cx + dx * 1.2, ay = cy + dy * 1.2;
+    // Front of the ellipse moves right (east), like the surface facing us.
+    ctx.beginPath(); ctx.ellipse(ax, ay, 22, 7, 0, 1.85 * Math.PI, 0.25 * Math.PI, true);
+    ctx.strokeStyle = '#a9e2df'; ctx.lineWidth = 2; ctx.stroke();
+    const t = 0.25 * Math.PI, hx = ax + 22 * Math.cos(t), hy = ay + 7 * Math.sin(t);
+    const tx = 22 * Math.sin(t), ty = -7 * Math.cos(t), tl = Math.hypot(tx, ty), ux = tx / tl, uy = ty / tl;
+    ctx.beginPath(); ctx.moveTo(hx + ux * 8, hy + uy * 8); ctx.lineTo(hx - uy * 5, hy + ux * 5); ctx.lineTo(hx + uy * 5, hy - ux * 5); ctx.closePath();
+    ctx.fillStyle = '#a9e2df'; ctx.fill();
+  }
+});
+
+function describe() {
+  const km = EQUATOR_KM * Math.cos(state.lat * DEG);
+  const speed = km / SIDEREAL_DAY_H;
+  const where = state.lat === 0 ? 'on the equator' : state.lat === 90 ? 'at the North Pole' : `${state.lat}° north of the equator`;
+  const body = state.lat === 90
+    ? 'At the pole you are on the axis itself. You just turn on the spot once a day, and you hardly move at all.'
+    : `In one spin you ride around a circle <strong>${fmt(km)} km (${fmt(km / KM_PER_MILE)} miles)</strong> long. That is about <strong>${fmt(Math.round(speed / 10) * 10)} km/h (${fmt(Math.round(speed / KM_PER_MILE / 10) * 10)} mph)</strong>.`;
+  document.getElementById('readout').innerHTML = `<span class="you">You</span> are ${where}. ${body}`;
+}
+
+slider('lat', v => v === 0 ? '0° (equator)' : v === 90 ? '90° (North Pole)' : `${v}° north`, v => { state.lat = v; describe(); view.redraw(); });
+document.querySelectorAll('[data-lat]').forEach(b => b.addEventListener('click', () => {
+  const s = document.getElementById('lat'); s.value = b.dataset.lat; s.dispatchEvent(new Event('input'));
+}));
+toggle('showAxis', v => { state.axis = v; view.redraw(); });
+toggle('showEquator', v => { state.equator = v; view.redraw(); });
+toggle('showGrid', v => { state.grid = v; view.redraw(); });
+player('play', dt => { state.spin += dt * 0.6; view.redraw(); });
+
+// Drag to turn (left-right) and tip (up-down) the globe.
+let drag = null;
+canvas.addEventListener('pointerdown', e => { drag = { x: e.clientX, y: e.clientY, spin: state.spin, tilt: state.tilt }; canvas.setPointerCapture(e.pointerId); });
+canvas.addEventListener('pointermove', e => {
+  if (!drag) return;
+  state.spin = drag.spin + (e.clientX - drag.x) * 0.01;
+  state.tilt = Math.max(-80 * DEG, Math.min(80 * DEG, drag.tilt + (e.clientY - drag.y) * 0.01));
+  view.redraw();
+});
+canvas.addEventListener('pointerup', () => { drag = null; });
+</script>
+</body>
+</html>

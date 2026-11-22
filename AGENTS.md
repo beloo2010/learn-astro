@@ -17,7 +17,7 @@ Read `PLAN.md` for the full design. This file holds the working rules.
 | `site/` (website shell, Sky Lab code, quiz mode, course map) | Codex | Claude (science and teaching) |
 | `tests/`, `.github/` (CI, schema checks, coverage report) | Codex | Claude |
 | `syllabus/section-map.json` (generated from the textbook) | Codex | Claude |
-| `syllabus/syllabus.md`, `lessons/`, `trivia/` | Claude | Codex (clarity, fact check, schema) |
+| `syllabus/syllabus.md`, `lessons/` (including lesson interactives), `trivia/` | Claude | Codex (clarity, fact check, schema, interactive code) |
 | `sandbox/` (Universe Sandbox walkthroughs) | Claude | Belu (verified live) |
 | `specs/` (Sky Lab module specs and acceptance tests) | Claude | Codex (feasibility) |
 | `course/`, `journal/` (progress and Belu's teach-backs) | Claude | none |
@@ -68,6 +68,18 @@ Claude tells Belu what it merged in its session summary.
 - **Cite every factual claim**: an OpenStax section (e.g., `OpenStax 8.1`), or NASA or another reliable source with a link.
 - Numbers: give rounded values with units, in both metric and US units where a child would care (e.g., "about 150 million km (93 million miles)").
 - Use the templates in `templates/`.
+- **Words before use.** Every term a lesson relies on is defined in its "Words you'll need" section before it is used (e.g., define "equator" before quoting a speed at the equator).
+- **Visual first.** Each key concept gets an interactive visual with at least one variable the learner can change, plus a "Try this" prompt. Keep a static, printable diagram as a fallback. Follow the pilot lesson `lessons/u01-earth/u01-l03-day-and-night.md`.
+- **Evidence shown three ways.** "How do we know?" says how the experiment or observation was actually done, shows it in an interactive, and tells the reader how to check it themselves.
+- **Check every link** by opening it before the PR, and note the check date under the lesson's Sources. Link only to pages the course site can reach (OpenStax, NASA, and other public sources); link to repo-only files on GitHub.
+
+### Lesson interactives
+
+- Location: `lessons/uNN-<slug>/interactive/<name>.html`, using the shared `lessons/_kit/widget.css` and `lessons/_kit/widget.js`. Plain HTML and ES modules, no build step, no outside libraries, works offline.
+- Embed in the lesson with an `<iframe>` whose `src` is written relative to the site page (`../lessons/uNN-<slug>/interactive/<name>.html`), followed by an "Open full screen" link written relative to the lesson file (`interactive/<name>.html`).
+- They must work with touch at phone, tablet, and laptop widths, never autoplay when the reader prefers reduced motion, and label any simplification on screen ("Simple model: ...").
+- They are teaching models, not evidence, and must say so. Precise astronomical positions belong in Sky Lab (`site/`), which uses Astronomy Engine.
+- `lessons/_kit/widget.js` posts `{ type: 'lesson-widget-height', height }` to the parent page so the site can size each frame.
 
 ## 5. Trivia data
 

@@ -1,0 +1,163 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Earth from a million miles</title>
+<link rel="stylesheet" href="../../_kit/widget.css">
+<style>
+  .strip { display: flex; gap: 8px; overflow-x: auto; padding: 4px 0; min-height: 96px; }
+  .strip figure { margin: 0; text-align: center; font-size: .8rem; color: var(--muted); }
+  .strip img { width: 80px; height: 80px; display: block; border-radius: 50%; background: #000; object-fit: cover; }
+  ol.steps { padding-left: 1.3em; margin: 6px 0; } ol.steps li { margin: 3px 0; }
+</style>
+</head>
+<body>
+<h1>Photos of Earth from a million miles away</h1>
+<p class="lede">NASA's EPIC camera rides on the DSCOVR spacecraft, parked between Earth and the Sun. It always looks at Earth's sunny side and takes photos all day long. Take your own "photos" and compare them.</p>
+
+<div class="stage">
+  <div class="view">
+    <h2>Where the camera is (not to scale)</h2>
+    <canvas id="map" aria-label="The Sun on the left, the DSCOVR spacecraft in between, and Earth on the right"></canvas>
+  </div>
+  <div class="view">
+    <h2>What the camera sees</h2>
+    <canvas id="cam" aria-label="Earth's sunlit face as the camera sees it, turning through the day"></canvas>
+  </div>
+</div>
+
+<div class="controls">
+  <div class="control">
+    <label for="utc">Time of day (world clock, UTC)</label>
+    <input id="utc" type="range" min="0" max="24" step="0.25" value="18">
+    <output for="utc"></output>
+    <div class="row"><button id="play">Play</button><button id="snap">Take a photo</button><button id="clear">Clear photos</button></div>
+  </div>
+  <div class="control">
+    <span class="name">Show</span>
+    <label class="check"><input id="manor" type="checkbox" checked> Manor, Texas (red dot)</label>
+  </div>
+</div>
+
+<div class="strip" id="strip" aria-label="Your photos"></div>
+
+<ul class="try">
+  <li>Take a photo now, play for a few hours, and take another. What moved? What stayed the same?</li>
+  <li>Does the camera ever see Earth's night side? Why not?</li>
+</ul>
+
+<h2 style="font-size:1rem;margin:12px 0 4px">Check it yourself with the real photos</h2>
+<ol class="steps">
+  <li>Open NASA's EPIC website: <a href="https://epic.gsfc.nasa.gov/" target="_blank" rel="noopener">epic.gsfc.nasa.gov</a>. It shows a set of real photos from one recent day.</li>
+  <li>Step through the photos from first to last. Watch one continent, like Africa or the Americas, slide across from one side and off the other.</li>
+  <li>Notice what stays the same: the camera always sees a fully sunlit Earth. The sunny side keeps facing the Sun while the land turns through it.</li>
+  <li>To see a whole day at once, watch NASA's animation <a href="https://science.nasa.gov/resource/as-the-world-turns/" target="_blank" rel="noopener">"As the World Turns"</a>, made from one day of EPIC photos.</li>
+</ol>
+
+<p class="note">This page is a drawing that copies what the camera does. The real photos are the evidence. Simple model: the Sun is lined up with the equator, continents are rough outlines. Sources: NASA, "Daily Views of Earth Available on New NASA Website" (2015); NASA Science, "As the World Turns".</p>
+
+<script type="module">
+import { fitCanvas, slider, toggle, player, DEG, fmt, clock, dot, label } from '../../_kit/widget.js';
+
+// Rough continent outlines as [longitude, latitude] points. Good enough to recognise, not a map.
+const LAND = [
+  [[-165,65],[-155,71],[-125,70],[-95,72],[-80,70],[-65,60],[-55,50],[-70,43],[-76,35],[-81,25],[-90,29],[-97,26],[-97,20],[-90,16],[-83,9],[-78,8],[-85,12],[-105,20],[-115,30],[-124,40],[-125,49],[-135,58],[-150,60],[-165,60]],
+  [[-55,60],[-45,60],[-20,70],[-20,82],[-60,82],[-70,77],[-55,68]],
+  [[-78,8],[-60,10],[-50,0],[-35,-5],[-40,-22],[-48,-28],[-58,-38],[-65,-55],[-72,-50],[-72,-30],[-70,-18],[-80,-5],[-80,2]],
+  [[-17,15],[-15,28],[-6,36],[10,37],[20,32],[32,31],[34,28],[43,12],[51,12],[40,-15],[35,-25],[20,-35],[15,-28],[12,-10],[9,4],[-8,4],[-17,10]],
+  [[-10,36],[-9,43],[-1,44],[-5,48],[5,52],[8,57],[5,62],[15,69],[30,71],[60,70],[80,73],[110,77],[140,72],[180,68],[180,62],[160,58],[140,50],[130,42],[122,40],[121,30],[110,20],[106,10],[100,13],[98,8],[100,2],[95,15],[90,22],[80,15],[77,8],[72,20],[60,25],[56,26],[50,30],[48,30],[56,24],[59,22],[52,15],[43,13],[35,30],[30,36],[27,40],[23,36],[20,40],[13,45],[16,38],[10,44],[3,43],[-5,36]],
+  [[114,-22],[122,-17],[130,-12],[137,-12],[142,-11],[146,-19],[153,-26],[150,-37],[141,-38],[131,-31],[115,-34]],
+  [[-5,50],[1,51],[-2,57],[-6,58],[-5,54]],
+  [[44,-25],[50,-15],[48,-13],[44,-17]],
+  [[130,31],[135,34],[141,36],[142,41],[140,40],[135,35],[131,34]],
+  [[95,5],[105,-6],[115,-8],[120,-9],[110,-2],[100,0]],
+  [[-180,-70],[-120,-73],[-60,-65],[0,-70],[60,-67],[120,-66],[180,-70],[180,-90],[-180,-90]],
+];
+// Paint the outlines onto a flat world map once, then wrap it onto the globe pixel by pixel.
+const TEX_W = 720, TEX_H = 360;
+const tex = document.createElement('canvas'); tex.width = TEX_W; tex.height = TEX_H;
+const t = tex.getContext('2d');
+t.fillStyle = '#1f5fa8'; t.fillRect(0, 0, TEX_W, TEX_H);
+t.fillStyle = '#5f8f4a';
+for (const poly of LAND) {
+  t.beginPath();
+  poly.forEach(([lon, lat], i) => { const x = (lon + 180) * 2, y = (90 - lat) * 2; i ? t.lineTo(x, y) : t.moveTo(x, y); });
+  t.closePath(); t.fill();
+}
+t.fillStyle = '#e8eef2'; t.fillRect(0, 0, TEX_W, 16); t.fillRect(0, TEX_H - 36, TEX_W, 36); // polar ice
+const texData = t.getImageData(0, 0, TEX_W, TEX_H).data;
+
+const state = { utc: 18, manor: true };
+const centreLon = () => -(state.utc - 12) * 15; // the longitude where it is noon, facing the camera
+
+const cam = fitCanvas(document.getElementById('cam'), 0.85, 300, (ctx, w, h) => {
+  ctx.fillStyle = '#000'; ctx.fillRect(0, 0, w, h);
+  const R = Math.floor(Math.min(w, h) * 0.44), cx = Math.floor(w / 2), cy = Math.floor(h / 2);
+  const dpr = window.devicePixelRatio || 1, size = Math.ceil(2 * R * dpr);
+  const img = ctx.createImageData(size, size);
+  const lon0 = centreLon() * DEG;
+  for (let j = 0; j < size; j++) for (let i = 0; i < size; i++) {
+    const x = (i / size) * 2 - 1, y = 1 - (j / size) * 2, r2 = x * x + y * y;
+    if (r2 > 1) { const o = (j * size + i) * 4; img.data[o + 3] = 255; continue; } // black space
+    const z = Math.sqrt(1 - r2);
+    const lat = Math.asin(y), lon = lon0 + Math.atan2(x, z);
+    const u = Math.floor((((lon / DEG + 180) % 360 + 360) % 360) * 2) % TEX_W;
+    const v = Math.min(TEX_H - 1, Math.floor((90 - lat / DEG) * 2));
+    const k = (v * TEX_W + u) * 4, o = (j * size + i) * 4;
+    const shade = 0.55 + 0.45 * z; // a little darker toward the edge, like the real photos
+    img.data[o] = texData[k] * shade; img.data[o + 1] = texData[k + 1] * shade; img.data[o + 2] = texData[k + 2] * shade; img.data[o + 3] = 255;
+  }
+  ctx.save(); ctx.setTransform(1, 0, 0, 1, 0, 0);
+  ctx.putImageData(img, Math.round((cx - R) * dpr), Math.round((cy - R) * dpr));
+  ctx.restore();
+  if (state.manor) {
+    const lat = 30.3 * DEG, dl = (-97.5 - centreLon()) * DEG;
+    const z = Math.cos(lat) * Math.cos(dl);
+    if (z > 0) {
+      const x = cx + R * Math.cos(lat) * Math.sin(dl), y = cy - R * Math.sin(lat);
+      dot(ctx, x, y, 5, '#ff6b6b'); label(ctx, 'Manor', x + 8, y, '#ff6b6b', 'left', 12);
+    }
+  }
+  label(ctx, `EPIC view · ${clock(state.utc)} UTC`, 6, 12, '#c4d6dc', 'left', 11);
+});
+
+const map = fitCanvas(document.getElementById('map'), 0.85, 300, (ctx, w, h) => {
+  ctx.clearRect(0, 0, w, h);
+  const cy = h * 0.45;
+  dot(ctx, -w * 0.08, cy, w * 0.2, '#ffcc33');
+  label(ctx, 'Sun', w * 0.03, cy + w * 0.24, '#ffcc33');
+  const ex = w * 0.82, er = w * 0.09;
+  dot(ctx, ex, cy, er, '#13213a');
+  ctx.beginPath(); ctx.arc(ex, cy, er, 0.5 * Math.PI, 1.5 * Math.PI); ctx.closePath(); ctx.fillStyle = '#3a8fd9'; ctx.fill();
+  label(ctx, 'Earth', ex, cy + er + 14, '#fff', 'center');
+  const sx = w * 0.6;
+  ctx.fillStyle = '#c4d6dc'; ctx.fillRect(sx - 6, cy - 4, 12, 8); ctx.fillRect(sx - 18, cy - 2, 10, 4); ctx.fillRect(sx + 8, cy - 2, 10, 4);
+  label(ctx, 'DSCOVR', sx, cy - 16, '#fff', 'center');
+  ctx.strokeStyle = 'rgba(255,107,107,.8)'; ctx.setLineDash([4, 4]); ctx.lineWidth = 1.5;
+  ctx.beginPath(); ctx.moveTo(sx + 8, cy - 4); ctx.lineTo(ex - er * 0.2, cy - er * 0.9); ctx.moveTo(sx + 8, cy + 4); ctx.lineTo(ex - er * 0.2, cy + er * 0.9); ctx.stroke(); ctx.setLineDash([]);
+  label(ctx, 'camera looks at the sunny side', sx, cy + er + 34, '#ff9b9b', 'center', 12);
+  label(ctx, 'about 1.6 million km (1 million miles) from Earth', w / 2, h - 30, '#c4d6dc', 'center', 12);
+  label(ctx, 'The Sun is about 100 times farther than that.', w / 2, h - 12, '#c4d6dc', 'center', 12);
+});
+
+slider('utc', v => `${clock(v)} UTC (${clock(v - 6)} in Manor in winter)`, v => { state.utc = v; cam.redraw(); });
+toggle('manor', v => { state.manor = v; cam.redraw(); });
+const utc = document.getElementById('utc');
+player('play', dt => {
+  state.utc = (state.utc + dt * 1.5) % 24; utc.value = state.utc;
+  document.querySelector('output[for="utc"]').textContent = `${clock(state.utc)} UTC (${clock(state.utc - 6)} in Manor in winter)`;
+  cam.redraw();
+});
+const strip = document.getElementById('strip');
+document.getElementById('snap').addEventListener('click', () => {
+  const fig = document.createElement('figure');
+  const img = document.createElement('img');
+  img.src = document.getElementById('cam').toDataURL('image/png'); img.alt = `Earth at ${clock(state.utc)} UTC`;
+  fig.append(img, Object.assign(document.createElement('figcaption'), { textContent: `${clock(state.utc)} UTC` }));
+  strip.append(fig); if (strip.children.length > 8) strip.firstElementChild.remove();
+});
+document.getElementById('clear').addEventListener('click', () => strip.replaceChildren());
+</script>
+</body>
+</html>

@@ -1,0 +1,36 @@
+/* Shared look for lesson interactives (each unit folder has an interactive/ folder).
+   Matches the course site's dark theme. No build step, no external files. */
+:root {
+  color-scheme: dark;
+  --bg: #17293a; --panel: #203447; --line: #486075; --text: #edf1f5; --muted: #c4d6dc;
+  --accent: #71c5b7; --link: #a9e2df; --sun: #ffcc33; --day: #3a8fd9; --night: #13213a;
+  --you: #ff6b6b; --other: #c79bff; --focus: #ffcc80;
+  font: 16px/1.5 "Atkinson Hyperlegible Next", system-ui, sans-serif;
+  color: var(--text); background: var(--bg);
+}
+* { box-sizing: border-box; }
+body { margin: 0; padding: 12px 16px 16px; background: var(--bg); }
+h1 { font-size: 1.15rem; margin: 0 0 4px; }
+p { margin: 4px 0; }
+.lede { color: var(--muted); font-size: .95rem; }
+.stage { display: grid; gap: 12px; grid-template-columns: repeat(auto-fit, minmax(min(100%, 260px), 1fr)); margin: 8px 0; }
+.view { background: #0b1020; border: 1px solid var(--line); border-radius: 8px; padding: 6px; }
+.view h2 { font-size: .85rem; font-weight: 600; color: var(--muted); margin: 0 0 4px; text-transform: uppercase; letter-spacing: .04em; }
+canvas { display: block; width: 100%; touch-action: none; }
+.controls { display: grid; gap: 10px 18px; grid-template-columns: repeat(auto-fit, minmax(min(100%, 230px), 1fr)); margin: 8px 0; }
+.control { display: grid; gap: 2px; }
+.control label, .control .name { font-weight: 600; font-size: .95rem; }
+.control output { color: var(--accent); font-variant-numeric: tabular-nums; }
+input[type=range] { width: 100%; min-height: 32px; accent-color: var(--accent); }
+.row { display: flex; flex-wrap: wrap; gap: 8px; align-items: center; }
+button { min-height: 40px; padding: 6px 12px; border: 1px solid #83a2ad; border-radius: 6px; background: #21384a; color: inherit; font: inherit; cursor: pointer; }
+button:hover { background: #2c485a; }
+button[aria-pressed=true] { background: #2f5d57; border-color: var(--accent); }
+.check { display: flex; gap: 6px; align-items: center; min-height: 32px; }
+.check input { width: 20px; height: 20px; accent-color: var(--accent); }
+:focus-visible { outline: 3px solid var(--focus); outline-offset: 2px; }
+.readout { background: var(--panel); border-left: 4px solid var(--accent); border-radius: 6px; padding: 8px 12px; margin: 8px 0; font-variant-numeric: tabular-nums; }
+.readout strong { color: #fff; }
+.try { margin: 8px 0 0; padding-left: 1.2em; color: var(--muted); font-size: .95rem; }
+.note { font-size: .85rem; color: var(--muted); margin-top: 6px; }
+.you { color: var(--you); font-weight: 700; } .other { color: var(--other); font-weight: 700; }

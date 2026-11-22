@@ -32,13 +32,20 @@
 |---|---|
 | Warm-up | Three quick review questions from earlier lessons (spaced repetition) |
 | Hook | A question a curious child might ask |
-| Core idea | Two or three short chunks, each with an image or diagram. New terms are **bolded and defined** the first time they appear. |
-| How do we know? | One piece of real evidence |
-| Predict, then check | Belu commits to a guess before seeing the answer |
+| Words you'll need | Every term the lesson relies on is defined in plain words **before** it is used (for example "equator" before "speed at the equator"), with an interactive picture where the word is visual. |
+| Core idea | Two or three short chunks. **Each key concept gets an interactive visual** with at least one variable to change and a "Try this" prompt. New terms are **bolded and defined** the first time they appear. |
+| How do we know? | Real evidence, shown three ways: **how it was done** (the actual experiment or observation), an **interactive** that shows what it measured, and **check it yourself** (a home version, a museum, or the real data online). |
+| Predict, then check | Belu commits to a guess before seeing the answer, then checks it in one of the interactives |
 | Lab or Universe Sandbox | A guided exercise |
 | Teach-back | Belu explains the idea in 2–3 sentences. Claude replies with follow-up questions a child would ask. |
-| Family kit | Trivia questions plus one "show me" demonstration with household items |
+| Family kit | Trivia questions plus at least one "show me" demonstration with household items, and which interactive makes a good family demo |
 | Record | Update the progress file and journal |
+
+**Visual-first rule (set by Belu, 2026-11-22):** Lessons should be heavy with visuals that are easy to show children. Every diagram is interactive where possible, so a learner can change a variable and see what happens. A static, printable version of each diagram is kept at the end of the lesson. The pilot lesson, `lessons/u01-earth/u01-l03-day-and-night.md`, is the reference example for every later lesson.
+
+**Lesson interactives** live next to their lesson in `lessons/uNN-<slug>/interactive/`, share `lessons/_kit/` (styles and helpers), and are plain HTML and ES modules with no build step and no outside libraries. They are simple teaching models and must say so on screen; precise sky positions belong in Sky Lab, which uses Astronomy Engine.
+
+**Links:** every link is opened and checked before a lesson is merged, and the lesson's Sources list ends with the date the links were checked.
 
 **Pacing rule:** If the teach-back holds up under the child-style questions, move on. If it wobbles, re-explain briefly, add the concept to the revisit list, and bring it back in future warm-ups.
 
@@ -208,7 +215,8 @@ AGENTS.md            shared rules for both agents (Codex reads this automaticall
 CLAUDE.md            points to AGENTS.md
 PLAN.md              this file
 syllabus/            syllabus.md, section-map.json
-lessons/uNN-*/       one Markdown file per lesson
+lessons/uNN-*/       one Markdown file per lesson; interactive/ holds its interactives
+lessons/_kit/        shared styles and helpers for lesson interactives
 trivia/              uNN-*.json
 sandbox/uNN-*/       Universe Sandbox walkthroughs + screenshots
 course/progress.md   checklist, "resume here" pointer, revisit list

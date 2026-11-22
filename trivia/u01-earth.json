@@ -151,6 +151,49 @@
         "dark room"
       ],
       "source": "OpenStax 4.1"
+    },
+    {
+      "id": "u01-l03-q12",
+      "lesson": "u01-l03",
+      "tier": "explorer",
+      "type": "predict",
+      "question": "A Foucault pendulum is set swinging on the equator. After a whole day, has its swing turned?",
+      "choices": [
+        "Yes, all the way round",
+        "Yes, halfway round",
+        "No, not at all"
+      ],
+      "answer": "No, not at all",
+      "why": "How much the swing turns depends on latitude. It turns a full circle in about a day at the poles, a full circle in about 32 hours in Paris, and not at all at the equator, just as a spinning Earth predicts.",
+      "followUp": "Where would it turn the fastest? (At the North or South Pole.)",
+      "source": "OpenStax 4.1; https://www.britannica.com/science/Foucault-pendulum"
+    },
+    {
+      "id": "u01-l03-q13",
+      "lesson": "u01-l03",
+      "tier": "challenger",
+      "type": "explain",
+      "question": "NASA's EPIC camera sits between Earth and the Sun and takes photos all day. Why are its photos always of daytime Earth, never night?",
+      "answer": "It looks at Earth from the Sun's side, so it always sees the half that the Sun is lighting. The land turns through that sunny half, but the sunny half keeps facing the Sun.",
+      "why": "This is what lets the photos show Earth turning: the lit face stays put while the continents roll across it.",
+      "source": "https://www.nasa.gov/news-release/daily-views-of-earth-available-on-new-nasa-website"
+    },
+    {
+      "id": "u01-l03-q14",
+      "lesson": "u01-l03",
+      "tier": "explorer",
+      "type": "demonstrate",
+      "question": "Show me how Foucault's pendulum works! Hang a weight on a string from a stand on a lazy Susan. Start it swinging toward the door, then slowly turn the lazy Susan. Which way does the swing point now?",
+      "answer": "Still toward the door. The stand turns, but the swing keeps its direction.",
+      "why": "A swinging pendulum keeps its direction unless something pushes it sideways. On Earth, the floor turns under the swing, so to us standing on the floor, the swing seems to turn.",
+      "followUp": "In this demo you turned the table yourself. In Paris, who turned the floor? (Nobody. Earth's spin did.)",
+      "materials": [
+        "lazy Susan or spinning office chair",
+        "small stand or chair to hang from",
+        "string about 50 cm long",
+        "a weight, such as a bag of coins"
+      ],
+      "source": "OpenStax 4.1"
     }
   ]
 }
