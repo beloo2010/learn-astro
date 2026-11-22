@@ -1,0 +1,1397 @@
+[
+  {
+    "section": "1.1",
+    "title": "The Nature of Astronomy",
+    "chapter": 1,
+    "url": "https://openstax.org/books/astronomy-2e/pages/1-1-the-nature-of-astronomy",
+    "unit": 5,
+    "coverage": "core",
+    "lessons": []
+  },
+  {
+    "section": "1.2",
+    "title": "The Nature of Science",
+    "chapter": 1,
+    "url": "https://openstax.org/books/astronomy-2e/pages/1-2-the-nature-of-science",
+    "unit": 5,
+    "coverage": "core",
+    "lessons": []
+  },
+  {
+    "section": "1.3",
+    "title": "The Laws of Nature",
+    "chapter": 1,
+    "url": "https://openstax.org/books/astronomy-2e/pages/1-3-the-laws-of-nature",
+    "unit": 2,
+    "coverage": "core",
+    "lessons": []
+  },
+  {
+    "section": "1.4",
+    "title": "Numbers in Astronomy",
+    "chapter": 1,
+    "url": "https://openstax.org/books/astronomy-2e/pages/1-4-numbers-in-astronomy",
+    "unit": 2,
+    "coverage": "core",
+    "lessons": []
+  },
+  {
+    "section": "1.5",
+    "title": "Consequences of Light Travel Time",
+    "chapter": 1,
+    "url": "https://openstax.org/books/astronomy-2e/pages/1-5-consequences-of-light-travel-time",
+    "unit": 2,
+    "coverage": "core",
+    "lessons": []
+  },
+  {
+    "section": "1.6",
+    "title": "A Tour of the Universe",
+    "chapter": 1,
+    "url": "https://openstax.org/books/astronomy-2e/pages/1-6-a-tour-of-the-universe",
+    "unit": 2,
+    "coverage": "core",
+    "lessons": []
+  },
+  {
+    "section": "1.7",
+    "title": "The Universe on the Large Scale",
+    "chapter": 1,
+    "url": "https://openstax.org/books/astronomy-2e/pages/1-7-the-universe-on-the-large-scale",
+    "unit": 2,
+    "coverage": "core",
+    "lessons": []
+  },
+  {
+    "section": "1.8",
+    "title": "The Universe of the Very Small",
+    "chapter": 1,
+    "url": "https://openstax.org/books/astronomy-2e/pages/1-8-the-universe-of-the-very-small",
+    "unit": 7,
+    "coverage": "core",
+    "lessons": []
+  },
+  {
+    "section": "1.9",
+    "title": "A Conclusion and a Beginning",
+    "chapter": 1,
+    "url": "https://openstax.org/books/astronomy-2e/pages/1-9-a-conclusion-and-a-beginning",
+    "unit": 2,
+    "coverage": "core",
+    "lessons": []
+  },
+  {
+    "section": "2.1",
+    "title": "The Sky Above",
+    "chapter": 2,
+    "url": "https://openstax.org/books/astronomy-2e/pages/2-1-the-sky-above",
+    "unit": 3,
+    "coverage": "core",
+    "lessons": []
+  },
+  {
+    "section": "2.2",
+    "title": "Ancient Astronomy",
+    "chapter": 2,
+    "url": "https://openstax.org/books/astronomy-2e/pages/2-2-ancient-astronomy",
+    "unit": 5,
+    "coverage": "core",
+    "lessons": []
+  },
+  {
+    "section": "2.3",
+    "title": "Astrology and Astronomy",
+    "chapter": 2,
+    "url": "https://openstax.org/books/astronomy-2e/pages/2-3-astrology-and-astronomy",
+    "unit": 5,
+    "coverage": "optional",
+    "lessons": []
+  },
+  {
+    "section": "2.4",
+    "title": "The Birth of Modern Astronomy",
+    "chapter": 2,
+    "url": "https://openstax.org/books/astronomy-2e/pages/2-4-the-birth-of-modern-astronomy",
+    "unit": 5,
+    "coverage": "core",
+    "lessons": []
+  },
+  {
+    "section": "3.1",
+    "title": "The Laws of Planetary Motion",
+    "chapter": 3,
+    "url": "https://openstax.org/books/astronomy-2e/pages/3-1-the-laws-of-planetary-motion",
+    "unit": 6,
+    "coverage": "core",
+    "lessons": []
+  },
+  {
+    "section": "3.2",
+    "title": "Newton’s Great Synthesis",
+    "chapter": 3,
+    "url": "https://openstax.org/books/astronomy-2e/pages/3-2-newtons-great-synthesis",
+    "unit": 6,
+    "coverage": "core",
+    "lessons": []
+  },
+  {
+    "section": "3.3",
+    "title": "Newton’s Universal Law of Gravitation",
+    "chapter": 3,
+    "url": "https://openstax.org/books/astronomy-2e/pages/3-3-newtons-universal-law-of-gravitation",
+    "unit": 6,
+    "coverage": "core",
+    "lessons": []
+  },
+  {
+    "section": "3.4",
+    "title": "Orbits in the Solar System",
+    "chapter": 3,
+    "url": "https://openstax.org/books/astronomy-2e/pages/3-4-orbits-in-the-solar-system",
+    "unit": 6,
+    "coverage": "core",
+    "lessons": []
+  },
+  {
+    "section": "3.5",
+    "title": "Motions of Satellites and Spacecraft",
+    "chapter": 3,
+    "url": "https://openstax.org/books/astronomy-2e/pages/3-5-motions-of-satellites-and-spacecraft",
+    "unit": 6,
+    "coverage": "core",
+    "lessons": []
+  },
+  {
+    "section": "3.6",
+    "title": "Gravity with More Than Two Bodies",
+    "chapter": 3,
+    "url": "https://openstax.org/books/astronomy-2e/pages/3-6-gravity-with-more-than-two-bodies",
+    "unit": 6,
+    "coverage": "optional",
+    "lessons": []
+  },
+  {
+    "section": "4.1",
+    "title": "Earth and Sky",
+    "chapter": 4,
+    "url": "https://openstax.org/books/astronomy-2e/pages/4-1-earth-and-sky",
+    "unit": 3,
+    "coverage": "core",
+    "lessons": []
+  },
+  {
+    "section": "4.2",
+    "title": "The Seasons",
+    "chapter": 4,
+    "url": "https://openstax.org/books/astronomy-2e/pages/4-2-the-seasons",
+    "unit": 3,
+    "coverage": "core",
+    "lessons": []
+  },
+  {
+    "section": "4.3",
+    "title": "Keeping Time",
+    "chapter": 4,
+    "url": "https://openstax.org/books/astronomy-2e/pages/4-3-keeping-time",
+    "unit": 3,
+    "coverage": "core",
+    "lessons": []
+  },
+  {
+    "section": "4.4",
+    "title": "The Calendar",
+    "chapter": 4,
+    "url": "https://openstax.org/books/astronomy-2e/pages/4-4-the-calendar",
+    "unit": 3,
+    "coverage": "optional",
+    "lessons": []
+  },
+  {
+    "section": "4.5",
+    "title": "Phases and Motions of the Moon",
+    "chapter": 4,
+    "url": "https://openstax.org/books/astronomy-2e/pages/4-5-phases-and-motions-of-the-moon",
+    "unit": 4,
+    "coverage": "core",
+    "lessons": []
+  },
+  {
+    "section": "4.6",
+    "title": "Ocean Tides and the Moon",
+    "chapter": 4,
+    "url": "https://openstax.org/books/astronomy-2e/pages/4-6-ocean-tides-and-the-moon",
+    "unit": 4,
+    "coverage": "core",
+    "lessons": []
+  },
+  {
+    "section": "4.7",
+    "title": "Eclipses of the Sun and Moon",
+    "chapter": 4,
+    "url": "https://openstax.org/books/astronomy-2e/pages/4-7-eclipses-of-the-sun-and-moon",
+    "unit": 4,
+    "coverage": "core",
+    "lessons": []
+  },
+  {
+    "section": "5.1",
+    "title": "The Behavior of Light",
+    "chapter": 5,
+    "url": "https://openstax.org/books/astronomy-2e/pages/5-1-the-behavior-of-light",
+    "unit": 7,
+    "coverage": "core",
+    "lessons": []
+  },
+  {
+    "section": "5.2",
+    "title": "The Electromagnetic Spectrum",
+    "chapter": 5,
+    "url": "https://openstax.org/books/astronomy-2e/pages/5-2-the-electromagnetic-spectrum",
+    "unit": 7,
+    "coverage": "core",
+    "lessons": []
+  },
+  {
+    "section": "5.3",
+    "title": "Spectroscopy in Astronomy",
+    "chapter": 5,
+    "url": "https://openstax.org/books/astronomy-2e/pages/5-3-spectroscopy-in-astronomy",
+    "unit": 7,
+    "coverage": "core",
+    "lessons": []
+  },
+  {
+    "section": "5.4",
+    "title": "The Structure of the Atom",
+    "chapter": 5,
+    "url": "https://openstax.org/books/astronomy-2e/pages/5-4-the-structure-of-the-atom",
+    "unit": 7,
+    "coverage": "optional",
+    "lessons": []
+  },
+  {
+    "section": "5.5",
+    "title": "Formation of Spectral Lines",
+    "chapter": 5,
+    "url": "https://openstax.org/books/astronomy-2e/pages/5-5-formation-of-spectral-lines",
+    "unit": 7,
+    "coverage": "core",
+    "lessons": []
+  },
+  {
+    "section": "5.6",
+    "title": "The Doppler Effect",
+    "chapter": 5,
+    "url": "https://openstax.org/books/astronomy-2e/pages/5-6-the-doppler-effect",
+    "unit": 7,
+    "coverage": "core",
+    "lessons": []
+  },
+  {
+    "section": "6.1",
+    "title": "Telescopes",
+    "chapter": 6,
+    "url": "https://openstax.org/books/astronomy-2e/pages/6-1-telescopes",
+    "unit": 8,
+    "coverage": "core",
+    "lessons": []
+  },
+  {
+    "section": "6.2",
+    "title": "Telescopes Today",
+    "chapter": 6,
+    "url": "https://openstax.org/books/astronomy-2e/pages/6-2-telescopes-today",
+    "unit": 8,
+    "coverage": "core",
+    "lessons": []
+  },
+  {
+    "section": "6.3",
+    "title": "Visible-Light Detectors and Instruments",
+    "chapter": 6,
+    "url": "https://openstax.org/books/astronomy-2e/pages/6-3-visible-light-detectors-and-instruments",
+    "unit": 8,
+    "coverage": "optional",
+    "lessons": []
+  },
+  {
+    "section": "6.4",
+    "title": "Radio Telescopes",
+    "chapter": 6,
+    "url": "https://openstax.org/books/astronomy-2e/pages/6-4-radio-telescopes",
+    "unit": 8,
+    "coverage": "core",
+    "lessons": []
+  },
+  {
+    "section": "6.5",
+    "title": "Observations outside Earth’s Atmosphere",
+    "chapter": 6,
+    "url": "https://openstax.org/books/astronomy-2e/pages/6-5-observations-outside-earths-atmosphere",
+    "unit": 8,
+    "coverage": "core",
+    "lessons": []
+  },
+  {
+    "section": "6.6",
+    "title": "The Future of Large Telescopes",
+    "chapter": 6,
+    "url": "https://openstax.org/books/astronomy-2e/pages/6-6-the-future-of-large-telescopes",
+    "unit": 8,
+    "coverage": "optional",
+    "lessons": []
+  },
+  {
+    "section": "7.1",
+    "title": "Overview of Our Planetary System",
+    "chapter": 7,
+    "url": "https://openstax.org/books/astronomy-2e/pages/7-1-overview-of-our-planetary-system",
+    "unit": 2,
+    "coverage": "core",
+    "lessons": []
+  },
+  {
+    "section": "7.2",
+    "title": "Composition and Structure of Planets",
+    "chapter": 7,
+    "url": "https://openstax.org/books/astronomy-2e/pages/7-2-composition-and-structure-of-planets",
+    "unit": 10,
+    "coverage": "core",
+    "lessons": []
+  },
+  {
+    "section": "7.3",
+    "title": "Dating Planetary Surfaces",
+    "chapter": 7,
+    "url": "https://openstax.org/books/astronomy-2e/pages/7-3-dating-planetary-surfaces",
+    "unit": 10,
+    "coverage": "optional",
+    "lessons": []
+  },
+  {
+    "section": "7.4",
+    "title": "Origin of the Solar System",
+    "chapter": 7,
+    "url": "https://openstax.org/books/astronomy-2e/pages/7-4-origin-of-the-solar-system",
+    "unit": 13,
+    "coverage": "core",
+    "lessons": []
+  },
+  {
+    "section": "8.1",
+    "title": "The Global Perspective",
+    "chapter": 8,
+    "url": "https://openstax.org/books/astronomy-2e/pages/8-1-the-global-perspective",
+    "unit": 1,
+    "coverage": "core",
+    "lessons": []
+  },
+  {
+    "section": "8.2",
+    "title": "Earth’s Crust",
+    "chapter": 8,
+    "url": "https://openstax.org/books/astronomy-2e/pages/8-2-earths-crust",
+    "unit": 1,
+    "coverage": "core",
+    "lessons": []
+  },
+  {
+    "section": "8.3",
+    "title": "Earth’s Atmosphere",
+    "chapter": 8,
+    "url": "https://openstax.org/books/astronomy-2e/pages/8-3-earths-atmosphere",
+    "unit": 1,
+    "coverage": "core",
+    "lessons": []
+  },
+  {
+    "section": "8.4",
+    "title": "Life, Chemical Evolution, and Climate Change",
+    "chapter": 8,
+    "url": "https://openstax.org/books/astronomy-2e/pages/8-4-life-chemical-evolution-and-climate-change",
+    "unit": 1,
+    "coverage": "optional",
+    "lessons": []
+  },
+  {
+    "section": "8.5",
+    "title": "Cosmic Influences on the Evolution of Earth",
+    "chapter": 8,
+    "url": "https://openstax.org/books/astronomy-2e/pages/8-5-cosmic-influences-on-the-evolution-of-earth",
+    "unit": 1,
+    "coverage": "core",
+    "lessons": []
+  },
+  {
+    "section": "9.1",
+    "title": "General Properties of the Moon",
+    "chapter": 9,
+    "url": "https://openstax.org/books/astronomy-2e/pages/9-1-general-properties-of-the-moon",
+    "unit": 4,
+    "coverage": "core",
+    "lessons": []
+  },
+  {
+    "section": "9.2",
+    "title": "The Lunar Surface",
+    "chapter": 9,
+    "url": "https://openstax.org/books/astronomy-2e/pages/9-2-the-lunar-surface",
+    "unit": 4,
+    "coverage": "core",
+    "lessons": []
+  },
+  {
+    "section": "9.3",
+    "title": "Impact Craters",
+    "chapter": 9,
+    "url": "https://openstax.org/books/astronomy-2e/pages/9-3-impact-craters",
+    "unit": 4,
+    "coverage": "core",
+    "lessons": []
+  },
+  {
+    "section": "9.4",
+    "title": "The Origin of the Moon",
+    "chapter": 9,
+    "url": "https://openstax.org/books/astronomy-2e/pages/9-4-the-origin-of-the-moon",
+    "unit": 4,
+    "coverage": "core",
+    "lessons": []
+  },
+  {
+    "section": "9.5",
+    "title": "Mercury",
+    "chapter": 9,
+    "url": "https://openstax.org/books/astronomy-2e/pages/9-5-mercury",
+    "unit": 10,
+    "coverage": "core",
+    "lessons": []
+  },
+  {
+    "section": "10.1",
+    "title": "The Nearest Planets: An Overview",
+    "chapter": 10,
+    "url": "https://openstax.org/books/astronomy-2e/pages/10-1-the-nearest-planets-an-overview",
+    "unit": 10,
+    "coverage": "core",
+    "lessons": []
+  },
+  {
+    "section": "10.2",
+    "title": "The Geology of Venus",
+    "chapter": 10,
+    "url": "https://openstax.org/books/astronomy-2e/pages/10-2-the-geology-of-venus",
+    "unit": 10,
+    "coverage": "core",
+    "lessons": []
+  },
+  {
+    "section": "10.3",
+    "title": "The Massive Atmosphere of Venus",
+    "chapter": 10,
+    "url": "https://openstax.org/books/astronomy-2e/pages/10-3-the-massive-atmosphere-of-venus",
+    "unit": 10,
+    "coverage": "core",
+    "lessons": []
+  },
+  {
+    "section": "10.4",
+    "title": "The Geology of Mars",
+    "chapter": 10,
+    "url": "https://openstax.org/books/astronomy-2e/pages/10-4-the-geology-of-mars",
+    "unit": 10,
+    "coverage": "core",
+    "lessons": []
+  },
+  {
+    "section": "10.5",
+    "title": "Water and Life on Mars",
+    "chapter": 10,
+    "url": "https://openstax.org/books/astronomy-2e/pages/10-5-water-and-life-on-mars",
+    "unit": 10,
+    "coverage": "core",
+    "lessons": []
+  },
+  {
+    "section": "10.6",
+    "title": "Divergent Planetary Evolution",
+    "chapter": 10,
+    "url": "https://openstax.org/books/astronomy-2e/pages/10-6-divergent-planetary-evolution",
+    "unit": 10,
+    "coverage": "core",
+    "lessons": []
+  },
+  {
+    "section": "11.1",
+    "title": "Exploring the Outer Planets",
+    "chapter": 11,
+    "url": "https://openstax.org/books/astronomy-2e/pages/11-1-exploring-the-outer-planets",
+    "unit": 11,
+    "coverage": "core",
+    "lessons": []
+  },
+  {
+    "section": "11.2",
+    "title": "The Giant Planets",
+    "chapter": 11,
+    "url": "https://openstax.org/books/astronomy-2e/pages/11-2-the-giant-planets",
+    "unit": 11,
+    "coverage": "core",
+    "lessons": []
+  },
+  {
+    "section": "11.3",
+    "title": "Atmospheres of the Giant Planets",
+    "chapter": 11,
+    "url": "https://openstax.org/books/astronomy-2e/pages/11-3-atmospheres-of-the-giant-planets",
+    "unit": 11,
+    "coverage": "core",
+    "lessons": []
+  },
+  {
+    "section": "12.1",
+    "title": "Ring and Moon Systems Introduced",
+    "chapter": 12,
+    "url": "https://openstax.org/books/astronomy-2e/pages/12-1-ring-and-moon-systems-introduced",
+    "unit": 12,
+    "coverage": "core",
+    "lessons": []
+  },
+  {
+    "section": "12.2",
+    "title": "The Galilean Moons of Jupiter",
+    "chapter": 12,
+    "url": "https://openstax.org/books/astronomy-2e/pages/12-2-the-galilean-moons-of-jupiter",
+    "unit": 12,
+    "coverage": "core",
+    "lessons": []
+  },
+  {
+    "section": "12.3",
+    "title": "Titan and Triton",
+    "chapter": 12,
+    "url": "https://openstax.org/books/astronomy-2e/pages/12-3-titan-and-triton",
+    "unit": 12,
+    "coverage": "core",
+    "lessons": []
+  },
+  {
+    "section": "12.4",
+    "title": "Pluto and Charon",
+    "chapter": 12,
+    "url": "https://openstax.org/books/astronomy-2e/pages/12-4-pluto-and-charon",
+    "unit": 12,
+    "coverage": "core",
+    "lessons": []
+  },
+  {
+    "section": "12.5",
+    "title": "Planetary Rings (and Enceladus)",
+    "chapter": 12,
+    "url": "https://openstax.org/books/astronomy-2e/pages/12-5-planetary-rings-and-enceladus",
+    "unit": 12,
+    "coverage": "core",
+    "lessons": []
+  },
+  {
+    "section": "13.1",
+    "title": "Asteroids",
+    "chapter": 13,
+    "url": "https://openstax.org/books/astronomy-2e/pages/13-1-asteroids",
+    "unit": 13,
+    "coverage": "core",
+    "lessons": []
+  },
+  {
+    "section": "13.2",
+    "title": "Asteroids and Planetary Defense",
+    "chapter": 13,
+    "url": "https://openstax.org/books/astronomy-2e/pages/13-2-asteroids-and-planetary-defense",
+    "unit": 13,
+    "coverage": "core",
+    "lessons": []
+  },
+  {
+    "section": "13.3",
+    "title": "The “Long-Haired” Comets",
+    "chapter": 13,
+    "url": "https://openstax.org/books/astronomy-2e/pages/13-3-the-long-haired-comets",
+    "unit": 13,
+    "coverage": "core",
+    "lessons": []
+  },
+  {
+    "section": "13.4",
+    "title": "The Origin and Fate of Comets and Related Objects",
+    "chapter": 13,
+    "url": "https://openstax.org/books/astronomy-2e/pages/13-4-the-origin-and-fate-of-comets-and-related-objects",
+    "unit": 13,
+    "coverage": "core",
+    "lessons": []
+  },
+  {
+    "section": "14.1",
+    "title": "Meteors",
+    "chapter": 14,
+    "url": "https://openstax.org/books/astronomy-2e/pages/14-1-meteors",
+    "unit": 13,
+    "coverage": "core",
+    "lessons": []
+  },
+  {
+    "section": "14.2",
+    "title": "Meteorites: Stones from Heaven",
+    "chapter": 14,
+    "url": "https://openstax.org/books/astronomy-2e/pages/14-2-meteorites-stones-from-heaven",
+    "unit": 13,
+    "coverage": "optional",
+    "lessons": []
+  },
+  {
+    "section": "14.3",
+    "title": "Formation of the Solar System",
+    "chapter": 14,
+    "url": "https://openstax.org/books/astronomy-2e/pages/14-3-formation-of-the-solar-system",
+    "unit": 13,
+    "coverage": "core",
+    "lessons": []
+  },
+  {
+    "section": "14.4",
+    "title": "Comparison with Other Planetary Systems",
+    "chapter": 14,
+    "url": "https://openstax.org/books/astronomy-2e/pages/14-4-comparison-with-other-planetary-systems",
+    "unit": 13,
+    "coverage": "core",
+    "lessons": []
+  },
+  {
+    "section": "14.5",
+    "title": "Planetary Evolution",
+    "chapter": 14,
+    "url": "https://openstax.org/books/astronomy-2e/pages/14-5-planetary-evolution",
+    "unit": 13,
+    "coverage": "core",
+    "lessons": []
+  },
+  {
+    "section": "15.1",
+    "title": "The Structure and Composition of the Sun",
+    "chapter": 15,
+    "url": "https://openstax.org/books/astronomy-2e/pages/15-1-the-structure-and-composition-of-the-sun",
+    "unit": 9,
+    "coverage": "core",
+    "lessons": []
+  },
+  {
+    "section": "15.2",
+    "title": "The Solar Cycle",
+    "chapter": 15,
+    "url": "https://openstax.org/books/astronomy-2e/pages/15-2-the-solar-cycle",
+    "unit": 9,
+    "coverage": "core",
+    "lessons": []
+  },
+  {
+    "section": "15.3",
+    "title": "Solar Activity above the Photosphere",
+    "chapter": 15,
+    "url": "https://openstax.org/books/astronomy-2e/pages/15-3-solar-activity-above-the-photosphere",
+    "unit": 9,
+    "coverage": "core",
+    "lessons": []
+  },
+  {
+    "section": "15.4",
+    "title": "Space Weather",
+    "chapter": 15,
+    "url": "https://openstax.org/books/astronomy-2e/pages/15-4-space-weather",
+    "unit": 9,
+    "coverage": "core",
+    "lessons": []
+  },
+  {
+    "section": "16.1",
+    "title": "Sources of Sunshine: Thermal and Gravitational Energy",
+    "chapter": 16,
+    "url": "https://openstax.org/books/astronomy-2e/pages/16-1-sources-of-sunshine-thermal-and-gravitational-energy",
+    "unit": 9,
+    "coverage": "core",
+    "lessons": []
+  },
+  {
+    "section": "16.2",
+    "title": "Mass, Energy, and the Theory of Relativity",
+    "chapter": 16,
+    "url": "https://openstax.org/books/astronomy-2e/pages/16-2-mass-energy-and-the-theory-of-relativity",
+    "unit": 9,
+    "coverage": "optional",
+    "lessons": []
+  },
+  {
+    "section": "16.3",
+    "title": "The Solar Interior: Theory",
+    "chapter": 16,
+    "url": "https://openstax.org/books/astronomy-2e/pages/16-3-the-solar-interior-theory",
+    "unit": 9,
+    "coverage": "core",
+    "lessons": []
+  },
+  {
+    "section": "16.4",
+    "title": "The Solar Interior: Observations",
+    "chapter": 16,
+    "url": "https://openstax.org/books/astronomy-2e/pages/16-4-the-solar-interior-observations",
+    "unit": 9,
+    "coverage": "optional",
+    "lessons": []
+  },
+  {
+    "section": "17.1",
+    "title": "The Brightness of Stars",
+    "chapter": 17,
+    "url": "https://openstax.org/books/astronomy-2e/pages/17-1-the-brightness-of-stars",
+    "unit": 14,
+    "coverage": "core",
+    "lessons": []
+  },
+  {
+    "section": "17.2",
+    "title": "Colors of Stars",
+    "chapter": 17,
+    "url": "https://openstax.org/books/astronomy-2e/pages/17-2-colors-of-stars",
+    "unit": 14,
+    "coverage": "optional",
+    "lessons": []
+  },
+  {
+    "section": "17.3",
+    "title": "The Spectra of Stars (and Brown Dwarfs)",
+    "chapter": 17,
+    "url": "https://openstax.org/books/astronomy-2e/pages/17-3-the-spectra-of-stars-and-brown-dwarfs",
+    "unit": 14,
+    "coverage": "core",
+    "lessons": []
+  },
+  {
+    "section": "17.4",
+    "title": "Using Spectra to Measure Stellar Radius, Composition, and Motion",
+    "chapter": 17,
+    "url": "https://openstax.org/books/astronomy-2e/pages/17-4-using-spectra-to-measure-stellar-radius-composition-and-motion",
+    "unit": 14,
+    "coverage": "core",
+    "lessons": []
+  },
+  {
+    "section": "18.1",
+    "title": "A Stellar Census",
+    "chapter": 18,
+    "url": "https://openstax.org/books/astronomy-2e/pages/18-1-a-stellar-census",
+    "unit": 15,
+    "coverage": "core",
+    "lessons": []
+  },
+  {
+    "section": "18.2",
+    "title": "Measuring Stellar Masses",
+    "chapter": 18,
+    "url": "https://openstax.org/books/astronomy-2e/pages/18-2-measuring-stellar-masses",
+    "unit": 15,
+    "coverage": "core",
+    "lessons": []
+  },
+  {
+    "section": "18.3",
+    "title": "Diameters of Stars",
+    "chapter": 18,
+    "url": "https://openstax.org/books/astronomy-2e/pages/18-3-diameters-of-stars",
+    "unit": 15,
+    "coverage": "core",
+    "lessons": []
+  },
+  {
+    "section": "18.4",
+    "title": "The H–R Diagram",
+    "chapter": 18,
+    "url": "https://openstax.org/books/astronomy-2e/pages/18-4-the-h-r-diagram",
+    "unit": 15,
+    "coverage": "core",
+    "lessons": []
+  },
+  {
+    "section": "19.1",
+    "title": "Fundamental Units of Distance",
+    "chapter": 19,
+    "url": "https://openstax.org/books/astronomy-2e/pages/19-1-fundamental-units-of-distance",
+    "unit": 16,
+    "coverage": "core",
+    "lessons": []
+  },
+  {
+    "section": "19.2",
+    "title": "Surveying the Stars",
+    "chapter": 19,
+    "url": "https://openstax.org/books/astronomy-2e/pages/19-2-surveying-the-stars",
+    "unit": 16,
+    "coverage": "core",
+    "lessons": []
+  },
+  {
+    "section": "19.3",
+    "title": "Variable Stars: One Key to Cosmic Distances",
+    "chapter": 19,
+    "url": "https://openstax.org/books/astronomy-2e/pages/19-3-variable-stars-one-key-to-cosmic-distances",
+    "unit": 16,
+    "coverage": "optional",
+    "lessons": []
+  },
+  {
+    "section": "19.4",
+    "title": "The H–R Diagram and Cosmic Distances",
+    "chapter": 19,
+    "url": "https://openstax.org/books/astronomy-2e/pages/19-4-the-h-r-diagram-and-cosmic-distances",
+    "unit": 16,
+    "coverage": "core",
+    "lessons": []
+  },
+  {
+    "section": "20.1",
+    "title": "The Interstellar Medium",
+    "chapter": 20,
+    "url": "https://openstax.org/books/astronomy-2e/pages/20-1-the-interstellar-medium",
+    "unit": 17,
+    "coverage": "core",
+    "lessons": []
+  },
+  {
+    "section": "20.2",
+    "title": "Interstellar Gas",
+    "chapter": 20,
+    "url": "https://openstax.org/books/astronomy-2e/pages/20-2-interstellar-gas",
+    "unit": 17,
+    "coverage": "core",
+    "lessons": []
+  },
+  {
+    "section": "20.3",
+    "title": "Cosmic Dust",
+    "chapter": 20,
+    "url": "https://openstax.org/books/astronomy-2e/pages/20-3-cosmic-dust",
+    "unit": 17,
+    "coverage": "core",
+    "lessons": []
+  },
+  {
+    "section": "20.4",
+    "title": "Cosmic Rays",
+    "chapter": 20,
+    "url": "https://openstax.org/books/astronomy-2e/pages/20-4-cosmic-rays",
+    "unit": 17,
+    "coverage": "optional",
+    "lessons": []
+  },
+  {
+    "section": "20.5",
+    "title": "The Life Cycle of Cosmic Material",
+    "chapter": 20,
+    "url": "https://openstax.org/books/astronomy-2e/pages/20-5-the-life-cycle-of-cosmic-material",
+    "unit": 17,
+    "coverage": "core",
+    "lessons": []
+  },
+  {
+    "section": "20.6",
+    "title": "Interstellar Matter around the Sun",
+    "chapter": 20,
+    "url": "https://openstax.org/books/astronomy-2e/pages/20-6-interstellar-matter-around-the-sun",
+    "unit": 17,
+    "coverage": "core",
+    "lessons": []
+  },
+  {
+    "section": "21.1",
+    "title": "Star Formation",
+    "chapter": 21,
+    "url": "https://openstax.org/books/astronomy-2e/pages/21-1-star-formation",
+    "unit": 18,
+    "coverage": "core",
+    "lessons": []
+  },
+  {
+    "section": "21.2",
+    "title": "The H–R Diagram and the Study of Stellar Evolution",
+    "chapter": 21,
+    "url": "https://openstax.org/books/astronomy-2e/pages/21-2-the-h-r-diagram-and-the-study-of-stellar-evolution",
+    "unit": 18,
+    "coverage": "core",
+    "lessons": []
+  },
+  {
+    "section": "21.3",
+    "title": "Evidence That Planets Form around Other Stars",
+    "chapter": 21,
+    "url": "https://openstax.org/books/astronomy-2e/pages/21-3-evidence-that-planets-form-around-other-stars",
+    "unit": 19,
+    "coverage": "core",
+    "lessons": []
+  },
+  {
+    "section": "21.4",
+    "title": "Planets beyond the Solar System: Search and Discovery",
+    "chapter": 21,
+    "url": "https://openstax.org/books/astronomy-2e/pages/21-4-planets-beyond-the-solar-system-search-and-discovery",
+    "unit": 19,
+    "coverage": "core",
+    "lessons": []
+  },
+  {
+    "section": "21.5",
+    "title": "Exoplanets Everywhere: What We Are Learning",
+    "chapter": 21,
+    "url": "https://openstax.org/books/astronomy-2e/pages/21-5-exoplanets-everywhere-what-we-are-learning",
+    "unit": 19,
+    "coverage": "core",
+    "lessons": []
+  },
+  {
+    "section": "21.6",
+    "title": "New Perspectives on Planet Formation",
+    "chapter": 21,
+    "url": "https://openstax.org/books/astronomy-2e/pages/21-6-new-perspectives-on-planet-formation",
+    "unit": 19,
+    "coverage": "core",
+    "lessons": []
+  },
+  {
+    "section": "22.1",
+    "title": "Evolution from the Main Sequence to Red Giants",
+    "chapter": 22,
+    "url": "https://openstax.org/books/astronomy-2e/pages/22-1-evolution-from-the-main-sequence-to-red-giants",
+    "unit": 20,
+    "coverage": "core",
+    "lessons": []
+  },
+  {
+    "section": "22.2",
+    "title": "Star Clusters",
+    "chapter": 22,
+    "url": "https://openstax.org/books/astronomy-2e/pages/22-2-star-clusters",
+    "unit": 20,
+    "coverage": "core",
+    "lessons": []
+  },
+  {
+    "section": "22.3",
+    "title": "Checking Out the Theory",
+    "chapter": 22,
+    "url": "https://openstax.org/books/astronomy-2e/pages/22-3-checking-out-the-theory",
+    "unit": 20,
+    "coverage": "core",
+    "lessons": []
+  },
+  {
+    "section": "22.4",
+    "title": "Further Evolution of Stars",
+    "chapter": 22,
+    "url": "https://openstax.org/books/astronomy-2e/pages/22-4-further-evolution-of-stars",
+    "unit": 20,
+    "coverage": "core",
+    "lessons": []
+  },
+  {
+    "section": "22.5",
+    "title": "The Evolution of More Massive Stars",
+    "chapter": 22,
+    "url": "https://openstax.org/books/astronomy-2e/pages/22-5-the-evolution-of-more-massive-stars",
+    "unit": 20,
+    "coverage": "core",
+    "lessons": []
+  },
+  {
+    "section": "23.1",
+    "title": "The Death of Low-Mass Stars",
+    "chapter": 23,
+    "url": "https://openstax.org/books/astronomy-2e/pages/23-1-the-death-of-low-mass-stars",
+    "unit": 21,
+    "coverage": "core",
+    "lessons": []
+  },
+  {
+    "section": "23.2",
+    "title": "Evolution of Massive Stars: An Explosive Finish",
+    "chapter": 23,
+    "url": "https://openstax.org/books/astronomy-2e/pages/23-2-evolution-of-massive-stars-an-explosive-finish",
+    "unit": 21,
+    "coverage": "core",
+    "lessons": []
+  },
+  {
+    "section": "23.3",
+    "title": "Supernova Observations",
+    "chapter": 23,
+    "url": "https://openstax.org/books/astronomy-2e/pages/23-3-supernova-observations",
+    "unit": 21,
+    "coverage": "core",
+    "lessons": []
+  },
+  {
+    "section": "23.4",
+    "title": "Pulsars and the Discovery of Neutron Stars",
+    "chapter": 23,
+    "url": "https://openstax.org/books/astronomy-2e/pages/23-4-pulsars-and-the-discovery-of-neutron-stars",
+    "unit": 21,
+    "coverage": "core",
+    "lessons": []
+  },
+  {
+    "section": "23.5",
+    "title": "The Evolution of Binary Star Systems",
+    "chapter": 23,
+    "url": "https://openstax.org/books/astronomy-2e/pages/23-5-the-evolution-of-binary-star-systems",
+    "unit": 21,
+    "coverage": "core",
+    "lessons": []
+  },
+  {
+    "section": "23.6",
+    "title": "The Mystery of the Gamma-Ray Bursts",
+    "chapter": 23,
+    "url": "https://openstax.org/books/astronomy-2e/pages/23-6-the-mystery-of-the-gamma-ray-bursts",
+    "unit": 21,
+    "coverage": "optional",
+    "lessons": []
+  },
+  {
+    "section": "24.1",
+    "title": "Introducing General Relativity",
+    "chapter": 24,
+    "url": "https://openstax.org/books/astronomy-2e/pages/24-1-introducing-general-relativity",
+    "unit": 22,
+    "coverage": "core",
+    "lessons": []
+  },
+  {
+    "section": "24.2",
+    "title": "Spacetime and Gravity",
+    "chapter": 24,
+    "url": "https://openstax.org/books/astronomy-2e/pages/24-2-spacetime-and-gravity",
+    "unit": 22,
+    "coverage": "core",
+    "lessons": []
+  },
+  {
+    "section": "24.3",
+    "title": "Tests of General Relativity",
+    "chapter": 24,
+    "url": "https://openstax.org/books/astronomy-2e/pages/24-3-tests-of-general-relativity",
+    "unit": 22,
+    "coverage": "core",
+    "lessons": []
+  },
+  {
+    "section": "24.4",
+    "title": "Time in General Relativity",
+    "chapter": 24,
+    "url": "https://openstax.org/books/astronomy-2e/pages/24-4-time-in-general-relativity",
+    "unit": 22,
+    "coverage": "optional",
+    "lessons": []
+  },
+  {
+    "section": "24.5",
+    "title": "Black Holes",
+    "chapter": 24,
+    "url": "https://openstax.org/books/astronomy-2e/pages/24-5-black-holes",
+    "unit": 22,
+    "coverage": "core",
+    "lessons": []
+  },
+  {
+    "section": "24.6",
+    "title": "Evidence for Black Holes",
+    "chapter": 24,
+    "url": "https://openstax.org/books/astronomy-2e/pages/24-6-evidence-for-black-holes",
+    "unit": 22,
+    "coverage": "core",
+    "lessons": []
+  },
+  {
+    "section": "24.7",
+    "title": "Gravitational Wave Astronomy",
+    "chapter": 24,
+    "url": "https://openstax.org/books/astronomy-2e/pages/24-7-gravitational-wave-astronomy",
+    "unit": 22,
+    "coverage": "core",
+    "lessons": []
+  },
+  {
+    "section": "25.1",
+    "title": "The Architecture of the Galaxy",
+    "chapter": 25,
+    "url": "https://openstax.org/books/astronomy-2e/pages/25-1-the-architecture-of-the-galaxy",
+    "unit": 23,
+    "coverage": "core",
+    "lessons": []
+  },
+  {
+    "section": "25.2",
+    "title": "Spiral Structure",
+    "chapter": 25,
+    "url": "https://openstax.org/books/astronomy-2e/pages/25-2-spiral-structure",
+    "unit": 23,
+    "coverage": "core",
+    "lessons": []
+  },
+  {
+    "section": "25.3",
+    "title": "The Mass of the Galaxy",
+    "chapter": 25,
+    "url": "https://openstax.org/books/astronomy-2e/pages/25-3-the-mass-of-the-galaxy",
+    "unit": 23,
+    "coverage": "core",
+    "lessons": []
+  },
+  {
+    "section": "25.4",
+    "title": "The Center of the Galaxy",
+    "chapter": 25,
+    "url": "https://openstax.org/books/astronomy-2e/pages/25-4-the-center-of-the-galaxy",
+    "unit": 23,
+    "coverage": "core",
+    "lessons": []
+  },
+  {
+    "section": "25.5",
+    "title": "Stellar Populations in the Galaxy",
+    "chapter": 25,
+    "url": "https://openstax.org/books/astronomy-2e/pages/25-5-stellar-populations-in-the-galaxy",
+    "unit": 23,
+    "coverage": "core",
+    "lessons": []
+  },
+  {
+    "section": "25.6",
+    "title": "The Formation of the Galaxy",
+    "chapter": 25,
+    "url": "https://openstax.org/books/astronomy-2e/pages/25-6-the-formation-of-the-galaxy",
+    "unit": 23,
+    "coverage": "core",
+    "lessons": []
+  },
+  {
+    "section": "26.1",
+    "title": "The Discovery of Galaxies",
+    "chapter": 26,
+    "url": "https://openstax.org/books/astronomy-2e/pages/26-1-the-discovery-of-galaxies",
+    "unit": 24,
+    "coverage": "core",
+    "lessons": []
+  },
+  {
+    "section": "26.2",
+    "title": "Types of Galaxies",
+    "chapter": 26,
+    "url": "https://openstax.org/books/astronomy-2e/pages/26-2-types-of-galaxies",
+    "unit": 24,
+    "coverage": "core",
+    "lessons": []
+  },
+  {
+    "section": "26.3",
+    "title": "Properties of Galaxies",
+    "chapter": 26,
+    "url": "https://openstax.org/books/astronomy-2e/pages/26-3-properties-of-galaxies",
+    "unit": 24,
+    "coverage": "core",
+    "lessons": []
+  },
+  {
+    "section": "26.4",
+    "title": "The Extragalactic Distance Scale",
+    "chapter": 26,
+    "url": "https://openstax.org/books/astronomy-2e/pages/26-4-the-extragalactic-distance-scale",
+    "unit": 24,
+    "coverage": "core",
+    "lessons": []
+  },
+  {
+    "section": "26.5",
+    "title": "The Expanding Universe",
+    "chapter": 26,
+    "url": "https://openstax.org/books/astronomy-2e/pages/26-5-the-expanding-universe",
+    "unit": 24,
+    "coverage": "core",
+    "lessons": []
+  },
+  {
+    "section": "27.1",
+    "title": "Quasars",
+    "chapter": 27,
+    "url": "https://openstax.org/books/astronomy-2e/pages/27-1-quasars",
+    "unit": 25,
+    "coverage": "core",
+    "lessons": []
+  },
+  {
+    "section": "27.2",
+    "title": "Supermassive Black Holes: What Quasars Really Are",
+    "chapter": 27,
+    "url": "https://openstax.org/books/astronomy-2e/pages/27-2-supermassive-black-holes-what-quasars-really-are",
+    "unit": 25,
+    "coverage": "core",
+    "lessons": []
+  },
+  {
+    "section": "27.3",
+    "title": "Quasars as Probes of Evolution in the Universe",
+    "chapter": 27,
+    "url": "https://openstax.org/books/astronomy-2e/pages/27-3-quasars-as-probes-of-evolution-in-the-universe",
+    "unit": 25,
+    "coverage": "optional",
+    "lessons": []
+  },
+  {
+    "section": "28.1",
+    "title": "Observations of Distant Galaxies",
+    "chapter": 28,
+    "url": "https://openstax.org/books/astronomy-2e/pages/28-1-observations-of-distant-galaxies",
+    "unit": 26,
+    "coverage": "core",
+    "lessons": []
+  },
+  {
+    "section": "28.2",
+    "title": "Galaxy Mergers and Active Galactic Nuclei",
+    "chapter": 28,
+    "url": "https://openstax.org/books/astronomy-2e/pages/28-2-galaxy-mergers-and-active-galactic-nuclei",
+    "unit": 26,
+    "coverage": "core",
+    "lessons": []
+  },
+  {
+    "section": "28.3",
+    "title": "The Distribution of Galaxies in Space",
+    "chapter": 28,
+    "url": "https://openstax.org/books/astronomy-2e/pages/28-3-the-distribution-of-galaxies-in-space",
+    "unit": 26,
+    "coverage": "core",
+    "lessons": []
+  },
+  {
+    "section": "28.4",
+    "title": "The Challenge of Dark Matter",
+    "chapter": 28,
+    "url": "https://openstax.org/books/astronomy-2e/pages/28-4-the-challenge-of-dark-matter",
+    "unit": 26,
+    "coverage": "core",
+    "lessons": []
+  },
+  {
+    "section": "28.5",
+    "title": "The Formation and Evolution of Galaxies and Structure in the Universe",
+    "chapter": 28,
+    "url": "https://openstax.org/books/astronomy-2e/pages/28-5-the-formation-and-evolution-of-galaxies-and-structure-in-the-universe",
+    "unit": 26,
+    "coverage": "core",
+    "lessons": []
+  },
+  {
+    "section": "29.1",
+    "title": "The Age of the Universe",
+    "chapter": 29,
+    "url": "https://openstax.org/books/astronomy-2e/pages/29-1-the-age-of-the-universe",
+    "unit": 27,
+    "coverage": "core",
+    "lessons": []
+  },
+  {
+    "section": "29.2",
+    "title": "A Model of the Universe",
+    "chapter": 29,
+    "url": "https://openstax.org/books/astronomy-2e/pages/29-2-a-model-of-the-universe",
+    "unit": 27,
+    "coverage": "core",
+    "lessons": []
+  },
+  {
+    "section": "29.3",
+    "title": "The Beginning of the Universe",
+    "chapter": 29,
+    "url": "https://openstax.org/books/astronomy-2e/pages/29-3-the-beginning-of-the-universe",
+    "unit": 27,
+    "coverage": "core",
+    "lessons": []
+  },
+  {
+    "section": "29.4",
+    "title": "The Cosmic Microwave Background",
+    "chapter": 29,
+    "url": "https://openstax.org/books/astronomy-2e/pages/29-4-the-cosmic-microwave-background",
+    "unit": 27,
+    "coverage": "core",
+    "lessons": []
+  },
+  {
+    "section": "29.5",
+    "title": "What Is the Universe Really Made Of?",
+    "chapter": 29,
+    "url": "https://openstax.org/books/astronomy-2e/pages/29-5-what-is-the-universe-really-made-of",
+    "unit": 27,
+    "coverage": "core",
+    "lessons": []
+  },
+  {
+    "section": "29.6",
+    "title": "The Inflationary Universe",
+    "chapter": 29,
+    "url": "https://openstax.org/books/astronomy-2e/pages/29-6-the-inflationary-universe",
+    "unit": 27,
+    "coverage": "optional",
+    "lessons": []
+  },
+  {
+    "section": "29.7",
+    "title": "The Anthropic Principle",
+    "chapter": 29,
+    "url": "https://openstax.org/books/astronomy-2e/pages/29-7-the-anthropic-principle",
+    "unit": 27,
+    "coverage": "optional",
+    "lessons": []
+  },
+  {
+    "section": "30.1",
+    "title": "The Cosmic Context for Life",
+    "chapter": 30,
+    "url": "https://openstax.org/books/astronomy-2e/pages/30-1-the-cosmic-context-for-life",
+    "unit": 28,
+    "coverage": "core",
+    "lessons": []
+  },
+  {
+    "section": "30.2",
+    "title": "Astrobiology",
+    "chapter": 30,
+    "url": "https://openstax.org/books/astronomy-2e/pages/30-2-astrobiology",
+    "unit": 28,
+    "coverage": "core",
+    "lessons": []
+  },
+  {
+    "section": "30.3",
+    "title": "Searching for Life beyond Earth",
+    "chapter": 30,
+    "url": "https://openstax.org/books/astronomy-2e/pages/30-3-searching-for-life-beyond-earth",
+    "unit": 28,
+    "coverage": "core",
+    "lessons": []
+  },
+  {
+    "section": "30.4",
+    "title": "The Search for Extraterrestrial Intelligence",
+    "chapter": 30,
+    "url": "https://openstax.org/books/astronomy-2e/pages/30-4-the-search-for-extraterrestrial-intelligence",
+    "unit": 28,
+    "coverage": "core",
+    "lessons": []
+  }
+]
