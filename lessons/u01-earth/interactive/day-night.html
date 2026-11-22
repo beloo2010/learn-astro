@@ -1,0 +1,209 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Day and night spinner</title>
+<link rel="stylesheet" href="../../_kit/widget.css">
+</head>
+<body>
+<h1>Spin the Earth: day and night</h1>
+<p class="lede">Left: Earth seen from above the North Pole. Right: what you'd see from a backyard in Manor, Texas, looking south. Press Play, or drag the slider.</p>
+
+<div class="stage">
+  <div class="view">
+    <h2>From space, above the North Pole</h2>
+    <canvas id="space" aria-label="Earth seen from above the North Pole, lit from the left by the Sun, with markers for Manor and Tokyo"></canvas>
+  </div>
+  <div class="view">
+    <h2>From the ground in Manor, facing south</h2>
+    <canvas id="ground" aria-label="The sky over Manor, Texas, with the eastern horizon on the left and the western horizon on the right"></canvas>
+  </div>
+</div>
+
+<div class="readout" id="status" aria-live="polite"></div>
+
+<div class="controls">
+  <div class="control">
+    <label for="turn">Turn Earth (time of day in Manor)</label>
+    <input id="turn" type="range" min="0" max="24" step="0.05" value="5.5">
+    <output for="turn"></output>
+    <div class="row"><button id="play">Play</button><button id="reset">Reset</button></div>
+  </div>
+  <div class="control">
+    <label for="speed">Playback speed</label>
+    <input id="speed" type="range" min="0.5" max="8" step="0.5" value="2">
+    <output for="speed"></output>
+  </div>
+  <div class="control">
+    <label for="length">How long Earth takes to spin once</label>
+    <input id="length" type="range" min="6" max="72" step="1" value="24">
+    <output for="length"></output>
+  </div>
+  <div class="control">
+    <span class="name">Options</span>
+    <label class="check"><input id="tokyo" type="checkbox"> Show Tokyo, Japan</label>
+    <label class="check"><input id="twilight" type="checkbox"> Show twilight</label>
+    <label class="check"><input id="reverse" type="checkbox"> What if Earth spun the other way?</label>
+  </div>
+</div>
+
+<ul class="try">
+  <li>Find the moment Manor crosses from the dark half into the light. What is happening in the backyard view?</li>
+  <li>Set the spin to 48 hours and press Play. How long does daytime last now?</li>
+  <li>Predict first: if Earth spun the other way, where would the Sun come up? Then tick the box and check.</li>
+</ul>
+<p class="note">Simple model: the Sun is lined up with the equator (as on the first day of spring or fall) and twilight is shown as an even band. Real sunrise times shift with the seasons; that's Unit 3. This is an illustration of the idea, not evidence for it.</p>
+
+<script type="module">
+import { fitCanvas, slider, toggle, player, DEG, fmt, clock, dot, label } from '../../_kit/widget.js';
+
+const MANOR_LAT = 30.3 * DEG, TOKYO_LAT = 35.7 * DEG;
+const TOKYO_EAST_OF_MANOR = 237.2; // degrees of longitude: Tokyo 139.7° E, Manor 97.5° W
+const state = { H: -97.5, length: 24, speed: 2, dir: 1, tokyo: false, twilight: false, hours: 0, lastLit: null, rise: null, set: null, dayLen: null, nightLen: null };
+
+const wrap = a => ((a + 180) % 360 + 360) % 360 - 180;                 // degrees to [-180, 180)
+const altitude = (H, lat) => Math.asin(Math.cos(lat) * Math.cos(H * DEG)) / DEG; // Sun on the celestial equator
+const azimuth = (H, lat) => Math.atan2(Math.sin(H * DEG), Math.cos(H * DEG) * Math.sin(lat)) / DEG; // from south, + toward west
+function phase(H, lat) {
+  const alt = altitude(H, lat);
+  const rising = -Math.sin(H * DEG) * state.dir > 0;
+  if (Math.abs(alt) < 4) return rising ? 'sunrise' : 'sunset';
+  if (alt > 0) return 'daytime';
+  return alt > -12 ? 'twilight, Sun just below the horizon' : 'night';
+}
+
+// ---------- Space view ----------
+const space = fitCanvas(document.getElementById('space'), 0.85, 340, (ctx, w, h) => {
+  ctx.clearRect(0, 0, w, h);
+  const R = Math.min(w * 0.3, h * 0.36), cx = w * 0.58, cy = h / 2;
+  // Sun and its light, coming from the left
+  dot(ctx, -R * 0.55, cy, R * 0.9, '#ffcc33');
+  ctx.strokeStyle = 'rgba(255,230,128,.55)'; ctx.lineWidth = 1.5;
+  for (let i = -2; i <= 2; i++) { ctx.beginPath(); ctx.moveTo(R * 0.45, cy + i * R * 0.38); ctx.lineTo(cx - R - 10, cy + i * R * 0.38); ctx.stroke(); }
+  label(ctx, 'sunlight', R * 0.5, cy - R * 0.95, '#ffe680');
+  // Earth: night disk, then the lit half facing the Sun
+  dot(ctx, cx, cy, R, '#13213a');
+  ctx.beginPath(); ctx.arc(cx, cy, R, 0.5 * Math.PI, 1.5 * Math.PI); ctx.closePath(); ctx.fillStyle = '#3a8fd9'; ctx.fill();
+  if (state.twilight) {
+    ctx.save(); ctx.beginPath(); ctx.arc(cx, cy, R, 0, 2 * Math.PI); ctx.clip();
+    const g = ctx.createLinearGradient(cx, 0, cx + R * 0.31, 0);
+    g.addColorStop(0, 'rgba(58,143,217,.75)'); g.addColorStop(1, 'rgba(58,143,217,0)');
+    ctx.fillStyle = g; ctx.fillRect(cx, cy - R, R * 0.31, 2 * R); ctx.restore();
+  }
+  // Lines fixed to Earth, so the spin is visible
+  const alpha0 = (180 + state.H) * DEG; // Manor's direction (math angle, counterclockwise, y up)
+  ctx.strokeStyle = 'rgba(255,255,255,.16)'; ctx.lineWidth = 1;
+  for (let k = 0; k < 12; k++) {
+    const a = alpha0 + k * 30 * DEG;
+    ctx.beginPath(); ctx.moveTo(cx, cy); ctx.lineTo(cx + R * Math.cos(a), cy - R * Math.sin(a)); ctx.stroke();
+  }
+  ctx.strokeStyle = '#fff'; ctx.setLineDash([5, 4]); ctx.beginPath(); ctx.moveTo(cx, cy - R - 6); ctx.lineTo(cx, cy + R + 6); ctx.stroke(); ctx.setLineDash([]);
+  label(ctx, 'terminator', cx + 4, cy + R + 14, '#fff');
+  dot(ctx, cx, cy, 3, '#fff');
+  // Spin arrow
+  const ar = R + 14, a1 = 30 * DEG, a2 = 80 * DEG;
+  ctx.strokeStyle = '#a9e2df'; ctx.lineWidth = 2;
+  ctx.beginPath(); ctx.arc(cx, cy, ar, -a2, -a1, false); ctx.stroke();
+  const tip = state.dir > 0 ? -a2 : -a1, back = state.dir > 0 ? 10 * DEG : -10 * DEG;
+  const tx = cx + ar * Math.cos(tip), ty = cy + ar * Math.sin(tip);
+  const bx = cx + ar * Math.cos(tip + back), by = cy + ar * Math.sin(tip + back);
+  ctx.beginPath(); ctx.moveTo(tx, ty); ctx.lineTo(bx + (bx - cx) * 0.12, by + (by - cy) * 0.12); ctx.lineTo(bx - (bx - cx) * 0.12, by - (by - cy) * 0.12); ctx.closePath(); ctx.fillStyle = '#a9e2df'; ctx.fill();
+  label(ctx, state.dir > 0 ? 'spin: west to east' : 'spin: east to west (what if)', cx + R * 0.15, cy - R - 26, '#a9e2df');
+  // Places
+  const place = (deltaDeg, lat, color, name) => {
+    const a = alpha0 + deltaDeg * DEG, r = R * Math.cos(lat);
+    const x = cx + r * Math.cos(a), y = cy - r * Math.sin(a);
+    dot(ctx, x, y, 7, color);
+    label(ctx, name, x + (Math.cos(a) < 0 ? -10 : 10), y, color, Math.cos(a) < 0 ? 'right' : 'left');
+  };
+  if (state.tokyo) place(TOKYO_EAST_OF_MANOR, TOKYO_LAT, '#c79bff', 'Tokyo');
+  place(0, MANOR_LAT, '#ff6b6b', 'Manor');
+  label(ctx, 'North Pole', cx + 6, cy + 12, '#fff', 'left', 11);
+});
+
+// ---------- Ground view ----------
+const ground = fitCanvas(document.getElementById('ground'), 0.85, 340, (ctx, w, h) => {
+  const alt = altitude(state.H, MANOR_LAT), az = azimuth(state.H, MANOR_LAT);
+  const horizonY = h * 0.72, span = w * 0.44, cx = w / 2, scaleY = (horizonY - 20) / 70;
+  // Sky colour from the Sun's height
+  const mix = (a, b, t) => a.map((v, i) => Math.round(v + (b[i] - v) * t));
+  const night = [8, 12, 28], dusk = [210, 110, 80], day = [90, 160, 230];
+  let top, bottom;
+  if (alt >= 6) { top = mix([60, 120, 200], day, Math.min(1, alt / 40)); bottom = [170, 210, 240]; }
+  else if (alt >= -12) {
+    const t = (alt + 12) / 18; top = mix(night, [60, 120, 200], t); bottom = mix([30, 30, 60], dusk, Math.min(1, t * 1.4));
+    if (alt > 0) bottom = mix(dusk, [170, 210, 240], alt / 6);
+  } else { top = night; bottom = [18, 22, 45]; }
+  const g = ctx.createLinearGradient(0, 0, 0, horizonY);
+  g.addColorStop(0, `rgb(${top})`); g.addColorStop(1, `rgb(${bottom})`);
+  ctx.fillStyle = g; ctx.fillRect(0, 0, w, horizonY);
+  // Today's path of the Sun (dashed)
+  ctx.strokeStyle = 'rgba(255,255,255,.35)'; ctx.setLineDash([4, 5]); ctx.lineWidth = 1.5; ctx.beginPath();
+  for (let k = -90; k <= 90; k += 2) {
+    const x = cx + (azimuth(k, MANOR_LAT) / 90) * span, y = horizonY - altitude(k, MANOR_LAT) * scaleY;
+    k === -90 ? ctx.moveTo(x, y) : ctx.lineTo(x, y);
+  }
+  ctx.stroke(); ctx.setLineDash([]);
+  // The Sun
+  if (alt > -3 && Math.abs(az) <= 100) {
+    const x = cx + (az / 90) * span, y = horizonY - alt * scaleY;
+    const glow = ctx.createRadialGradient(x, y, 2, x, y, 34);
+    glow.addColorStop(0, 'rgba(255,240,170,.9)'); glow.addColorStop(1, 'rgba(255,240,170,0)');
+    ctx.fillStyle = glow; ctx.fillRect(x - 34, y - 34, 68, 68);
+    dot(ctx, x, y, 11, '#ffdd55');
+  }
+  // Ground, a tree and a house so it feels like a backyard
+  ctx.fillStyle = alt > 0 ? '#2f5b2f' : '#14241a'; ctx.fillRect(0, horizonY, w, h - horizonY);
+  ctx.fillStyle = alt > 0 ? '#20401f' : '#0c160f';
+  ctx.fillRect(w * 0.16, horizonY - 26, 5, 26); dot(ctx, w * 0.16 + 2, horizonY - 34, 14, ctx.fillStyle);
+  ctx.beginPath(); ctx.moveTo(w * 0.7, horizonY); ctx.lineTo(w * 0.7, horizonY - 18); ctx.lineTo(w * 0.75, horizonY - 30); ctx.lineTo(w * 0.8, horizonY - 18); ctx.lineTo(w * 0.8, horizonY); ctx.fill();
+  label(ctx, 'EAST', cx - span, horizonY + 16, '#fff', 'center', 12);
+  label(ctx, 'SOUTH', cx, horizonY + 16, '#fff', 'center', 12);
+  label(ctx, 'WEST', cx + span, horizonY + 16, '#fff', 'center', 12);
+  label(ctx, alt > 0 ? `Sun ${fmt(alt)}° above the horizon` : alt > -3 ? 'Sun on the horizon' : 'Sun below the horizon', 8, 14, '#fff', 'left', 12);
+});
+
+// ---------- Readout ----------
+const turnInput = document.getElementById('turn');
+function status() {
+  const manor = phase(state.H, MANOR_LAT);
+  let text = `<span class="you">Manor</span>: <strong>${manor}</strong>.`;
+  if (state.tokyo) text += ` <span class="other">Tokyo</span>: <strong>${phase(state.H + TOKYO_EAST_OF_MANOR, TOKYO_LAT)}</strong>.`;
+  text += ` Time passed: ${fmt(state.hours, 1)} hours.`;
+  if (state.dayLen != null) text += ` Last daytime in Manor: <strong>${fmt(state.dayLen, 1)} h</strong>.`;
+  if (state.nightLen != null) text += ` Last night: <strong>${fmt(state.nightLen, 1)} h</strong>.`;
+  document.getElementById('status').innerHTML = text;
+}
+function turnText(v) { return state.length === 24 ? clock(v) + ' (local Sun time)' : `${fmt((v / 24) * 100)}% of the way round from midnight`; }
+function redraw() {
+  const T = ((12 + (state.dir > 0 ? 1 : -1) * wrap(state.H) / 15) % 24 + 24) % 24;
+  turnInput.value = T; document.querySelector('output[for="turn"]').textContent = turnText(T);
+  space.redraw(); ground.redraw(); status();
+}
+function clearTimer() { state.hours = 0; state.lastLit = null; state.rise = state.set = state.dayLen = state.nightLen = null; }
+
+slider('turn', turnText, v => { state.H = (state.dir > 0 ? 1 : -1) * (v - 12) * 15; clearTimer(); redraw(); });
+slider('speed', v => `1 second = ${fmt(v, 1)} hours`, v => { state.speed = v; });
+slider('length', v => v === 24 ? '24 hours (real Earth)' : `${v} hours`, v => { state.length = v; clearTimer(); redraw(); });
+toggle('tokyo', v => { state.tokyo = v; redraw(); });
+toggle('twilight', v => { state.twilight = v; redraw(); });
+toggle('reverse', v => { state.dir = v ? -1 : 1; clearTimer(); redraw(); });
+document.getElementById('reset').addEventListener('click', () => { play.set(false); state.H = -97.5 * state.dir; clearTimer(); redraw(); });
+
+const play = player('play', dt => {
+  const hours = dt * state.speed;
+  state.hours += hours;
+  state.H = wrap(state.H + state.dir * 360 * hours / state.length);
+  const lit = altitude(state.H, MANOR_LAT) > 0;
+  if (state.lastLit !== null && lit !== state.lastLit) {
+    if (lit) { if (state.set != null) state.nightLen = state.hours - state.set; state.rise = state.hours; }
+    else { if (state.rise != null) state.dayLen = state.hours - state.rise; state.set = state.hours; }
+  }
+  state.lastLit = lit;
+  redraw();
+});
+redraw();
+</script>
+</body>
+</html>

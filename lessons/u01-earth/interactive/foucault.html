@@ -1,0 +1,248 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Foucault's pendulum</title>
+<link rel="stylesheet" href="../../_kit/widget.css">
+<style>
+  .tabs { display: flex; flex-wrap: wrap; gap: 6px; margin: 8px 0; }
+  .panel[hidden] { display: none; }
+  ol.steps { padding-left: 1.3em; margin: 6px 0; } ol.steps li { margin: 3px 0; }
+</style>
+</head>
+<body>
+<h1>Foucault's pendulum: catching the Earth turning</h1>
+<p class="lede">In 1851 Léon Foucault hung a heavy ball on a very long wire in Paris. Hours later, its swing pointed a different way. Here's how it worked, and how you can check the idea at home.</p>
+
+<div class="tabs" role="tablist">
+  <button role="tab" id="tab-setup" aria-controls="setup" aria-selected="true" aria-pressed="true">1. The setup</button>
+  <button role="tab" id="tab-above" aria-controls="above" aria-selected="false" aria-pressed="false">2. Watch from above</button>
+  <button role="tab" id="tab-home" aria-controls="home" aria-selected="false" aria-pressed="false">3. Check it at home</button>
+</div>
+
+<!-- 1. Setup -->
+<section class="panel" id="setup" role="tabpanel" aria-labelledby="tab-setup">
+  <div class="stage"><div class="view">
+    <h2>Side view: the Panthéon, Paris, 1851</h2>
+    <canvas id="side" aria-label="Side view of a long pendulum hanging from a dome and swinging over a ring of sand"></canvas>
+  </div></div>
+  <div class="controls">
+    <div class="control"><span class="name">Swing</span>
+      <div class="row"><button id="playSide">Play</button></div>
+      <label class="check"><input id="realSpeed" type="checkbox"> Real speed (count the seconds!)</label>
+    </div>
+  </div>
+  <ol class="steps">
+    <li><strong>A very long wire</strong> (about 67 m, as tall as a 20-storey building) hangs from the top of the dome. A long wire makes a slow, steady swing that keeps going for hours.</li>
+    <li><strong>A heavy ball</strong> (about 28 kg, or 62 lb) hangs at the bottom. Its weight keeps air and small bumps from changing its swing.</li>
+    <li><strong>The start:</strong> the ball was pulled to one side and let go carefully, so it swung back and forth in one straight line, with no sideways push.</li>
+    <li><strong>The marks:</strong> a pointer under the ball traced a path in a thin layer of sand on the floor. Every swing left its mark a tiny bit turned from the one before.</li>
+    <li><strong>Before Paris:</strong> Foucault first tried it with a short pendulum in his own basement, then showed it at the Paris Observatory on February 3, 1851, before the big public show at the Panthéon that March.</li>
+  </ol>
+</section>
+
+<!-- 2. From above -->
+<section class="panel" id="above" role="tabpanel" aria-labelledby="tab-above" hidden>
+  <div class="stage"><div class="view">
+    <h2 id="aboveTitle">Looking down on the floor</h2>
+    <canvas id="top" aria-label="Top view of the pendulum's swing line over a floor with a ring of pegs"></canvas>
+  </div></div>
+  <div class="readout" id="topReadout" aria-live="polite"></div>
+  <div class="controls">
+    <div class="control">
+      <label for="lat">Where the pendulum is</label>
+      <input id="lat" type="range" min="-90" max="90" step="1" value="49">
+      <output for="lat"></output>
+      <div class="row" role="group" aria-label="Places">
+        <button data-lat="90">North Pole</button><button data-lat="49">Paris</button><button data-lat="30">Manor</button><button data-lat="0">Equator</button><button data-lat="-34">Sydney</button>
+      </div>
+    </div>
+    <div class="control">
+      <label for="lapse">Time-lapse</label>
+      <input id="lapse" type="range" min="0.5" max="6" step="0.5" value="2">
+      <output for="lapse"></output>
+      <div class="row"><button id="playTop">Play</button><button id="resetTop">Reset pegs</button></div>
+    </div>
+    <div class="control">
+      <span class="name">Look from</span>
+      <label class="check"><input type="radio" name="frame" value="floor" checked> The floor (what visitors see)</label>
+      <label class="check"><input type="radio" name="frame" value="stars"> The stars (why it happens)</label>
+    </div>
+  </div>
+  <ul class="try">
+    <li>Predict: at the equator, how long until the first peg falls? Then try it.</li>
+    <li>Switch to "the stars" and choose the North Pole. What is really moving: the swing, or the floor?</li>
+    <li>Choose Sydney. Which way do the pegs fall now?</li>
+  </ul>
+</section>
+
+<!-- 3. Home check -->
+<section class="panel" id="home" role="tabpanel" aria-labelledby="tab-home" hidden>
+  <div class="stage"><div class="view">
+    <h2>Lazy-Susan pendulum (seen from above)</h2>
+    <canvas id="lazy" aria-label="A pendulum hanging from a frame on a turntable; the turntable turns but the swing keeps pointing the same way"></canvas>
+  </div></div>
+  <div class="controls">
+    <div class="control">
+      <label for="table">Turn the turntable (or drag it)</label>
+      <input id="table" type="range" min="0" max="360" step="1" value="0">
+      <output for="table"></output>
+      <div class="row"><button id="playLazy">Play</button></div>
+    </div>
+  </div>
+  <ol class="steps">
+    <li><strong>You need:</strong> a lazy Susan or a spinning office chair, a small stand or a chair-back to hang from, string about 50 cm long, and a weight (a bag of coins, a heavy washer, or a small bottle of water).</li>
+    <li>Tie the weight to the string and hang it from the stand. Put the stand in the middle of the turntable.</li>
+    <li>Pull the weight to one side and let go gently, so it swings in a straight line toward, say, the door.</li>
+    <li>Slowly turn the turntable. Watch the stand turn, but the swing <em>keeps pointing at the door</em>.</li>
+    <li>Now imagine you're a tiny bug standing on the turntable. To you, the swing seems to turn. Earth is the turntable, and we are the bugs.</li>
+  </ol>
+  <p class="note">This home version only <em>shows the idea</em>: you turned the table yourself. Foucault's pendulum is real evidence because nobody turned anything, yet the swing still turned, by the amount the Earth's spin predicts for Paris.</p>
+</section>
+
+<p class="note">Facts about the 1851 Panthéon pendulum: wire about 67 m (220 ft) and ball about 28 kg (62 lb), per APS News and Britannica (OpenStax rounds these to 60 m and 25 kg). One swing there and back takes about 16 seconds, worked out from the wire's length. The swing turns by 360° × sin(latitude) in one star day (23.9 hours): a full circle in about 24 hours at the poles, about 32 hours in Paris (about 11° an hour), and never at the equator. Sources: OpenStax <em>Astronomy 2e</em> 4.1; APS News, "February 3, 1851: Léon Foucault Demonstrates That Earth Rotates"; Encyclopaedia Britannica, "Foucault pendulum".</p>
+
+<script type="module">
+import { fitCanvas, slider, player, DEG, fmt, dot, label } from '../../_kit/widget.js';
+import { rateDegPerHour as rateAt, swingBearingOnFloor, swingBearingOnScreen, floorTurnOnScreen, distanceToSwingLine } from './foucault-model.js';
+
+// ---------- Tabs ----------
+const tabs = [...document.querySelectorAll('[role=tab]')];
+tabs.forEach(tab => tab.addEventListener('click', () => {
+  tabs.forEach(t => {
+    const on = t === tab;
+    t.setAttribute('aria-selected', String(on)); t.setAttribute('aria-pressed', String(on));
+    document.getElementById(t.getAttribute('aria-controls')).hidden = !on;
+  });
+}));
+
+// ---------- 1. Side view ----------
+const sideState = { t: 0, real: false };
+const SWING_PERIOD_REAL = 16.4; // seconds for a 67 m pendulum (2π√(L/g))
+const side = fitCanvas(document.getElementById('side'), 0.75, 380, (ctx, w, h) => {
+  ctx.clearRect(0, 0, w, h);
+  const top = 26, floor = h - 34, cx = w / 2, L = floor - top - 22;
+  // Dome
+  ctx.strokeStyle = '#8aa2b8'; ctx.lineWidth = 2;
+  ctx.beginPath(); ctx.ellipse(cx, top + 40, w * 0.28, 44, 0, Math.PI, 2 * Math.PI); ctx.stroke();
+  ctx.beginPath(); ctx.moveTo(cx - w * 0.28, top + 40); ctx.lineTo(cx - w * 0.28, floor); ctx.moveTo(cx + w * 0.28, top + 40); ctx.lineTo(cx + w * 0.28, floor); ctx.stroke();
+  // Floor and sand ring
+  ctx.fillStyle = '#3a3226'; ctx.fillRect(0, floor, w, h - floor);
+  ctx.fillStyle = '#c8a96a'; ctx.fillRect(cx - w * 0.2, floor - 4, w * 0.4, 6);
+  // Pendulum
+  const period = sideState.real ? SWING_PERIOD_REAL : 3;
+  const theta = 9 * DEG * Math.cos(2 * Math.PI * sideState.t / period);
+  const bx = cx + L * Math.sin(theta), by = top + L * Math.cos(theta);
+  ctx.strokeStyle = '#ddd'; ctx.lineWidth = 1.5; ctx.beginPath(); ctx.moveTo(cx, top); ctx.lineTo(bx, by); ctx.stroke();
+  dot(ctx, cx, top, 4, '#ddd');
+  const g = ctx.createRadialGradient(bx - 4, by - 4, 2, bx, by, 14);
+  g.addColorStop(0, '#f2e3a0'); g.addColorStop(1, '#9c7a2a');
+  dot(ctx, bx, by, 13, g);
+  ctx.strokeStyle = '#ddd'; ctx.beginPath(); ctx.moveTo(bx, by + 13); ctx.lineTo(bx, by + 20); ctx.stroke();
+  // Labels
+  label(ctx, 'wire about 67 m (220 ft)', cx + 10, top + L * 0.45, '#fff');
+  label(ctx, 'ball about 28 kg (62 lb)', bx + 20, by, '#f2e3a0');
+  label(ctx, 'pointer traces a line in sand', cx, floor + 18, '#c8a96a', 'center');
+  label(ctx, sideState.real ? `one swing there and back: about 16 s · ${fmt(sideState.t % SWING_PERIOD_REAL, 0)} s` : 'sped up, so you can see it', 8, 12, '#c4d6dc', 'left', 12);
+});
+player('playSide', dt => { sideState.t += dt; side.redraw(); }, true);
+document.getElementById('realSpeed').addEventListener('change', e => { sideState.real = e.target.checked; sideState.t = 0; side.redraw(); });
+
+// ---------- 2. Top view ----------
+const topState = { lat: 49, hours: 0, lapse: 2, frame: 'floor', pegs: [], swingT: 0 };
+const PEGS = 36;
+function resetPegs() { topState.hours = 0; topState.pegs = Array.from({ length: PEGS }, (_, i) => ({ angle: i * 360 / PEGS, down: false })); }
+resetPegs();
+// Angle maths lives in foucault-model.js (tested by foucault-model.test.mjs).
+const rateDegPerHour = () => rateAt(topState.lat);
+
+const topView = fitCanvas(document.getElementById('top'), 0.8, 340, (ctx, w, h) => {
+  ctx.clearRect(0, 0, w, h);
+  const cx = w / 2, cy = h / 2, R = Math.min(w, h) * 0.42;
+  // In the stars view the floor turns under the swing; in the floor view it stays still.
+  ctx.save(); ctx.translate(cx, cy); ctx.rotate(floorTurnOnScreen(topState.lat, topState.hours, topState.frame) * DEG);
+  // Floor
+  dot(ctx, 0, 0, R * 1.08, '#3a3226');
+  ctx.strokeStyle = 'rgba(255,255,255,.15)'; ctx.lineWidth = 1;
+  for (let k = 0; k < 8; k++) { ctx.beginPath(); ctx.moveTo(0, 0); ctx.lineTo(R * 1.08 * Math.cos(k * Math.PI / 4), R * 1.08 * Math.sin(k * Math.PI / 4)); ctx.stroke(); }
+  label(ctx, 'N', 0, -R * 0.93, '#fff', 'center', 12);
+  label(ctx, 'S', 0, R * 0.93, '#c4d6dc', 'center', 12);
+  label(ctx, 'E', R * 0.93, 0, '#c4d6dc', 'center', 12);
+  label(ctx, 'W', -R * 0.93, 0, '#c4d6dc', 'center', 12);
+  // Pegs (fixed to the floor)
+  for (const p of topState.pegs) {
+    const a = (p.angle - 90) * DEG, x = R * Math.cos(a), y = R * Math.sin(a);
+    if (p.down) { ctx.strokeStyle = '#a33'; ctx.lineWidth = 3; ctx.beginPath(); ctx.moveTo(x, y); ctx.lineTo(x * 1.06, y * 1.06); ctx.stroke(); }
+    else dot(ctx, x, y, 4, '#ff6b6b');
+  }
+  ctx.restore();
+  // Swing line and bob, in screen space
+  const sa = swingBearingOnScreen(topState.lat, topState.hours, topState.frame) * DEG;
+  const dx = Math.sin(sa), dy = -Math.cos(sa);
+  ctx.strokeStyle = 'rgba(255,230,128,.5)'; ctx.setLineDash([5, 4]); ctx.lineWidth = 2;
+  ctx.beginPath(); ctx.moveTo(cx - dx * R, cy - dy * R); ctx.lineTo(cx + dx * R, cy + dy * R); ctx.stroke(); ctx.setLineDash([]);
+  const s = Math.sin(2 * Math.PI * topState.swingT / 1.4) * R * 0.95;
+  dot(ctx, cx + dx * s, cy + dy * s, 10, '#e7c45a');
+  label(ctx, `${fmt(topState.hours, 1)} hours`, 8, 14, '#fff', 'left', 13);
+});
+
+function topReadout() {
+  const lat = topState.lat, rate = rateDegPerHour();
+  const where = lat === 90 ? 'At the North Pole' : lat === -90 ? 'At the South Pole' : lat === 0 ? 'On the equator' : `At ${Math.abs(lat)}° ${lat > 0 ? 'north' : 'south'}`;
+  let text;
+  if (lat === 0) text = `${where}, the swing <strong>never turns</strong>. The floor there isn't twisting around the up-down direction, it's just carried along.`;
+  else {
+    const full = 360 / Math.abs(rate);
+    text = `${where}, the swing turns about <strong>${fmt(Math.abs(rate), 1)}° every hour</strong>, ${rate > 0 ? 'clockwise' : 'counterclockwise'} seen from above. A full circle takes about <strong>${fmt(full, 0)} hours</strong>.`;
+  }
+  const down = topState.pegs.filter(p => p.down).length;
+  document.getElementById('topReadout').innerHTML = text + ` Pegs knocked over: ${down} of ${PEGS}.`;
+  document.getElementById('aboveTitle').textContent = topState.frame === 'stars' ? 'Seen from the stars: the floor turns under the swing' : 'Looking down on the floor';
+}
+function knockPegs() {
+  const line = swingBearingOnFloor(topState.lat, topState.hours);
+  for (const p of topState.pegs) {
+    if (distanceToSwingLine(p.angle, line) < 1.2 && topState.hours > 0.05) p.down = true;
+  }
+}
+slider('lat', v => v === 0 ? 'equator' : `${Math.abs(v)}° ${v > 0 ? 'north' : 'south'}`, v => { topState.lat = v; resetPegs(); topReadout(); topView.redraw(); });
+document.querySelectorAll('[data-lat]').forEach(b => b.addEventListener('click', () => {
+  const s = document.getElementById('lat'); s.value = b.dataset.lat; s.dispatchEvent(new Event('input'));
+}));
+slider('lapse', v => `1 second = ${fmt(v, 1)} hours`, v => { topState.lapse = v; });
+document.querySelectorAll('input[name=frame]').forEach(r => r.addEventListener('change', () => { topState.frame = r.value; topReadout(); topView.redraw(); }));
+document.getElementById('resetTop').addEventListener('click', () => { resetPegs(); topReadout(); topView.redraw(); });
+player('playTop', dt => { topState.hours += dt * topState.lapse; topState.swingT += dt; knockPegs(); topReadout(); topView.redraw(); });
+topReadout();
+
+// ---------- 3. Lazy Susan ----------
+const lazyState = { table: 0, t: 0 };
+const lazy = fitCanvas(document.getElementById('lazy'), 0.7, 320, (ctx, w, h) => {
+  ctx.clearRect(0, 0, w, h);
+  const cx = w / 2, cy = h / 2, R = Math.min(w, h) * 0.4;
+  // Room: a door on the right wall that never moves
+  ctx.fillStyle = '#5b4a33'; ctx.fillRect(w - 16, cy - 30, 10, 60); label(ctx, 'door', w - 22, cy, '#fff', 'right', 12);
+  ctx.save(); ctx.translate(cx, cy); ctx.rotate(lazyState.table * DEG);
+  dot(ctx, 0, 0, R, '#5c4630'); dot(ctx, 0, 0, R * 0.96, '#7a5c3c');
+  dot(ctx, R * 0.75, 0, 8, '#ff6b6b'); label(ctx, 'bug', R * 0.75, 16, '#ff6b6b', 'center', 11);
+  // Stand: two feet and a cross bar, fixed to the table
+  ctx.fillStyle = '#c4d6dc'; ctx.fillRect(-R * 0.55, -4, R * 1.1, 8);
+  dot(ctx, -R * 0.55, 0, 6, '#c4d6dc'); dot(ctx, R * 0.55, 0, 6, '#c4d6dc');
+  ctx.restore();
+  // Swing: always toward the door (room frame)
+  ctx.strokeStyle = 'rgba(255,230,128,.5)'; ctx.setLineDash([5, 4]); ctx.lineWidth = 2;
+  ctx.beginPath(); ctx.moveTo(cx - R * 0.8, cy); ctx.lineTo(cx + R * 0.8, cy); ctx.stroke(); ctx.setLineDash([]);
+  dot(ctx, cx + Math.sin(2 * Math.PI * lazyState.t / 1.4) * R * 0.7, cy, 10, '#e7c45a');
+  label(ctx, 'swing keeps pointing at the door', 8, 14, '#fff', 'left', 12);
+});
+const tableSlider = slider('table', v => `${v}°`, v => { lazyState.table = v; lazy.redraw(); });
+player('playLazy', dt => { lazyState.t += dt; lazy.redraw(); }, true);
+let drag = null;
+const lazyCanvas = document.getElementById('lazy');
+lazyCanvas.addEventListener('pointerdown', e => { drag = e.clientX; lazyCanvas.setPointerCapture(e.pointerId); });
+lazyCanvas.addEventListener('pointermove', e => { if (drag === null) return; tableSlider.set(((tableSlider.value + (e.clientX - drag) * 0.6) % 360 + 360) % 360 | 0); drag = e.clientX; });
+lazyCanvas.addEventListener('pointerup', () => { drag = null; });
+</script>
+</body>
+</html>

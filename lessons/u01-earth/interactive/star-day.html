@@ -1,0 +1,104 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Star day and Sun day</title>
+<link rel="stylesheet" href="../../_kit/widget.css">
+</head>
+<body>
+<h1>Why noon-to-noon is a little longer than one spin</h1>
+<p class="lede">Earth spins <em>and</em> moves around the Sun at the same time. Watch the red dot: when does it point at the far-away star again, and when does it point at the Sun again?</p>
+
+<div class="stage"><div class="view">
+  <h2>Seen from above the North Pole (not to scale)</h2>
+  <canvas id="orbit" aria-label="Earth moving around the Sun while spinning, with a red dot marking one place on Earth"></canvas>
+</div></div>
+
+<div class="readout" id="readout" aria-live="polite"></div>
+
+<div class="controls">
+  <div class="control">
+    <label for="year">Days in a year (make it short to see the effect)</label>
+    <input id="year" type="range" min="4" max="366" step="1" value="12">
+    <output for="year"></output>
+    <div class="row"><button data-year="12">12-day year</button><button data-year="365">Real Earth</button></div>
+  </div>
+  <div class="control">
+    <label for="speed">Playback speed</label>
+    <input id="speed" type="range" min="1" max="24" step="1" value="6">
+    <output for="speed"></output>
+    <div class="row"><button id="play">Play</button><button id="reset">Reset</button></div>
+  </div>
+</div>
+
+<ul class="try">
+  <li>Play the 12-day year until the dot points at the star again. Is it noon yet?</li>
+  <li>Count over one whole year: how many spins, and how many noons?</li>
+  <li>Switch to the real Earth. How big is the difference now?</li>
+</ul>
+<p class="note">A <strong>sidereal day</strong> ("star day") is one spin measured against the far-away stars: about 23 hours 56 minutes for Earth. A <strong>solar day</strong> is measured against the Sun, from one local noon to the next: about 24 hours. The solar day is longer because Earth has moved along its orbit, so it must turn a little extra to face the Sun again. Source: OpenStax <em>Astronomy 2e</em> 4.3. A clock here counts 24-hour solar days; the 12-day year is a made-up "what if".</p>
+
+<script type="module">
+import { fitCanvas, slider, player, fmt, dot, label } from '../../_kit/widget.js';
+
+const state = { N: 12, speed: 6, t: 0, spins: 0, noons: 0, flash: '', flashT: 0 };
+const P = () => 24 * state.N / (state.N + 1);          // star day in hours, with a 24 h Sun day
+const orbitAngle = () => 2 * Math.PI * state.t / (24 * state.N);
+const spinAngle = () => Math.PI + 2 * Math.PI * state.t / P(); // dot's direction from Earth's centre (math angle)
+
+const view = fitCanvas(document.getElementById('orbit'), 0.75, 380, (ctx, w, h) => {
+  ctx.clearRect(0, 0, w, h);
+  const cx = w * 0.55, cy = h / 2, Ro = Math.min(w * 0.3, h * 0.36), re = Ro * 0.2;
+  // Star direction: far to the left
+  ctx.strokeStyle = 'rgba(255,255,255,.5)'; ctx.lineWidth = 1.5;
+  for (const dy of [-0.8, 0, 0.8]) {
+    const y = cy + dy * Ro; ctx.beginPath(); ctx.moveTo(4, y); ctx.lineTo(28, y); ctx.stroke();
+    ctx.beginPath(); ctx.moveTo(4, y); ctx.lineTo(11, y - 4); ctx.lineTo(11, y + 4); ctx.closePath(); ctx.fillStyle = '#fff'; ctx.fill();
+  }
+  label(ctx, '★ to a far-away star', 6, cy - Ro - 12, '#fff', 'left', 12);
+  // Orbit and Sun
+  ctx.strokeStyle = 'rgba(255,255,255,.2)'; ctx.setLineDash([3, 5]);
+  ctx.beginPath(); ctx.arc(cx, cy, Ro, 0, 2 * Math.PI); ctx.stroke(); ctx.setLineDash([]);
+  dot(ctx, cx, cy, Ro * 0.22, '#ffcc33'); ctx.font = '12px system-ui, sans-serif'; ctx.textAlign = 'center'; ctx.textBaseline = 'middle'; ctx.fillStyle = '#5a3d00'; ctx.fillText('Sun', cx, cy);
+  // Earth
+  const th = orbitAngle(), ex = cx + Ro * Math.cos(th), ey = cy - Ro * Math.sin(th);
+  dot(ctx, ex, ey, re, '#13213a');
+  const toSun = Math.atan2(-(cy - ey), cx - ex); // math angle from Earth to Sun (y up)
+  ctx.beginPath(); ctx.arc(ex, ey, re, -toSun - Math.PI / 2, -toSun + Math.PI / 2); ctx.closePath(); ctx.fillStyle = '#3a8fd9'; ctx.fill();
+  // The dot and its pointer
+  const a = spinAngle(), mx = ex + re * Math.cos(a), my = ey - re * Math.sin(a);
+  ctx.strokeStyle = '#ff6b6b'; ctx.lineWidth = 2; ctx.beginPath(); ctx.moveTo(mx, my); ctx.lineTo(mx + re * 1.2 * Math.cos(a), my - re * 1.2 * Math.sin(a)); ctx.stroke();
+  dot(ctx, mx, my, 5, '#ff6b6b');
+  if (state.flash) label(ctx, state.flash, ex, ey - re - 24, state.flash.startsWith('Noon') ? '#ffcc33' : '#fff', 'center', 14);
+  label(ctx, `Day ${fmt(state.t / 24, 2)}`, 8, h - 12, '#c4d6dc', 'left', 12);
+});
+
+function hm(hours) { const m = Math.round(hours * 60); return `${Math.floor(m / 60)} h ${m % 60} min`; }
+function readout() {
+  document.getElementById('readout').innerHTML =
+    `Star day (one spin): <strong>${hm(P())}</strong>. Sun day (noon to noon): <strong>24 h 0 min</strong>. ` +
+    `Extra turn needed each day: <strong>${fmt(360 / state.N, state.N > 100 ? 2 : 0)}°</strong>. ` +
+    `In one year: <strong>${fmt(state.N + 1)} spins</strong> but only <strong>${fmt(state.N)} noons</strong>.<br>` +
+    `So far: <span class="you">${state.spins}</span> spins, <span style="color:#ffcc33;font-weight:700">${state.noons}</span> noons.`;
+}
+function reset() { state.t = 0; state.spins = 0; state.noons = 0; state.flash = ''; readout(); view.redraw(); }
+
+slider('year', v => v >= 365 ? '365 days (real Earth)' : `${v} days`, v => { state.N = v >= 365 ? 365.25 : v; reset(); });
+document.querySelectorAll('[data-year]').forEach(b => b.addEventListener('click', () => {
+  const s = document.getElementById('year'); s.value = b.dataset.year; s.dispatchEvent(new Event('input'));
+}));
+slider('speed', v => `1 second = ${v} hours`, v => { state.speed = v; });
+document.getElementById('reset').addEventListener('click', reset);
+player('play', dt => {
+  const before = state.t; state.t += dt * state.speed;
+  const spinsNow = Math.floor(state.t / P()), noonsNow = Math.floor(state.t / 24);
+  if (spinsNow > Math.floor(before / P())) { state.spins = spinsNow; state.flash = '★ pointing at the star'; state.flashT = 1.2; }
+  if (noonsNow > Math.floor(before / 24)) { state.noons = noonsNow; state.flash = 'Noon! Facing the Sun'; state.flashT = 1.2; }
+  state.flashT -= dt; if (state.flashT <= 0) state.flash = '';
+  readout(); view.redraw();
+});
+readout();
+</script>
+</body>
+</html>
