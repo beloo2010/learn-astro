@@ -52,7 +52,7 @@ async function lesson(view, path) {
   }
   const article = el('article');
   article.innerHTML = marked.parse(source.slice(front?.[0].length || 0));
-  for (const [selector,attr] of [['img[src]','src'],['a[href]','href']]) {
+  for (const [selector,attr] of [['img[src], iframe[src]','src'],['a[href]','href']]) {
     for (const node of article.querySelectorAll(selector)) {
       const value = node.getAttribute(attr);
       const url = new URL(value,new URL(path,root));
@@ -63,6 +63,18 @@ async function lesson(view, path) {
   }
   view.append(article);
 }
+window.addEventListener('message', event => {
+  const data = event.data;
+  if (event.origin !== location.origin || data?.type !== 'lesson-widget-height' ||
+      !Number.isFinite(data.height) || data.height <= 0) return;
+  for (const frame of page.querySelectorAll('article iframe')) {
+    if (frame.contentWindow === event.source) {
+      frame.style.height = Math.ceil(data.height) + 'px';
+      break;
+    }
+  }
+});
+
 async function map(view) {
   const source = await read('course/progress.md');
   const next = source.match(/^\*\*Next:\*\*\s*(.+)$/m)?.[1] || '';
