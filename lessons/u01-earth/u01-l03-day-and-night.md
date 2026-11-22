@@ -36,7 +36,7 @@ These words come up in this lesson. Play with the globe below until each one mak
 - **Horizon:** the line where the ground (or sea) seems to meet the sky.
 - **Orbit:** the path one object takes around another. Earth's orbit around the Sun takes one year.
 
-<iframe src="../lessons/u01-earth/interactive/earth-parts.html" title="Interactive globe: Earth's axis, poles, equator, and how fast the ground moves" width="100%" height="880" loading="lazy" style="border:0;border-radius:8px"></iframe>
+<iframe src="interactive/earth-parts.html" title="Interactive globe: Earth's axis, poles, equator, and how fast the ground moves" width="100%" height="880" loading="lazy" style="border:0;border-radius:8px"></iframe>
 
 [Open full screen: Earth's axis, poles and equator](interactive/earth-parts.html)
 
@@ -56,7 +56,7 @@ Earth turns around its axis. This turning is called **rotation**. Earth rotates 
 
 A **solar day** is the time from one local noon to the next, about 24 hours. (**Local noon** is the moment the Sun is highest in your sky.) That is actually a little more than one full turn, for a reason explained in "Go deeper." (OpenStax 4.3)
 
-<iframe src="../lessons/u01-earth/interactive/day-night.html" title="Interactive: spin the Earth and watch day and night from space and from a backyard in Manor" width="100%" height="1010" loading="lazy" style="border:0;border-radius:8px"></iframe>
+<iframe src="interactive/day-night.html" title="Interactive: spin the Earth and watch day and night from space and from a backyard in Manor" width="100%" height="1010" loading="lazy" style="border:0;border-radius:8px"></iframe>
 
 [Open full screen: Spin the Earth](interactive/day-night.html)
 
@@ -88,7 +88,7 @@ A **pendulum** is a weight hanging on a string or wire that can swing freely. On
 
 **Why it counts as evidence.** The amount it turns depends on where on Earth the pendulum is. It turns a full circle in a day at the poles, about 32 hours in Paris, and not at all at the equator. That is exactly what a spinning Earth predicts, and it is what pendulums all over the world measure.
 
-<iframe src="../lessons/u01-earth/interactive/foucault.html" title="Interactive: how Foucault's pendulum experiment was set up, what it shows from above, and how to check it at home" width="100%" height="1130" loading="lazy" style="border:0;border-radius:8px"></iframe>
+<iframe src="interactive/foucault.html" title="Interactive: how Foucault's pendulum experiment was set up, what it shows from above, and how to check it at home" width="100%" height="1130" loading="lazy" style="border:0;border-radius:8px"></iframe>
 
 [Open full screen: Foucault's pendulum](interactive/foucault.html)
 
@@ -100,7 +100,7 @@ A **pendulum** is a weight hanging on a string or wire that can swing freely. On
 
 **How it is done.** NASA's EPIC camera rides on the DSCOVR **spacecraft** (a machine that travels in space), which sits between Earth and the Sun, about 1.6 million km (1 million miles) from Earth. From there it always sees Earth's sunlit side, and it takes a set of photos every day. Lined up in order, the photos show the continents rolling into view on one side and out of view on the other, while the sunlit side keeps facing the Sun. ([NASA: Daily Views of Earth Available on New NASA Website](https://www.nasa.gov/news-release/daily-views-of-earth-available-on-new-nasa-website); [NASA Science: As the World Turns](https://science.nasa.gov/resource/as-the-world-turns/))
 
-<iframe src="../lessons/u01-earth/interactive/space-camera.html" title="Interactive: where NASA's EPIC camera is and what it sees as Earth turns, with a photo strip" width="100%" height="1110" loading="lazy" style="border:0;border-radius:8px"></iframe>
+<iframe src="interactive/space-camera.html" title="Interactive: where NASA's EPIC camera is and what it sees as Earth turns, with a photo strip" width="100%" height="1110" loading="lazy" style="border:0;border-radius:8px"></iframe>
 
 [Open full screen: Photos of Earth from a million miles away](interactive/space-camera.html)
 
@@ -165,7 +165,7 @@ Questions Claude may ask (don't read these first):
 
 Measured against the distant stars, Earth turns once in about 23 hours 56 minutes, which is called a **sidereal day** ("star day"). A solar day is about 4 minutes longer, because Earth also moves along its orbit during the day, so it has to turn a little more to face the Sun again. (OpenStax 4.3)
 
-<iframe src="../lessons/u01-earth/interactive/star-day.html" title="Interactive: why a solar day is longer than one spin against the stars" width="100%" height="960" loading="lazy" style="border:0;border-radius:8px"></iframe>
+<iframe src="interactive/star-day.html" title="Interactive: why a solar day is longer than one spin against the stars" width="100%" height="960" loading="lazy" style="border:0;border-radius:8px"></iframe>
 
 [Open full screen: Star day and Sun day](interactive/star-day.html)
 

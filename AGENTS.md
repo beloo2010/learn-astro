@@ -80,7 +80,7 @@ Claude tells Belu what it merged in its session summary.
 ### Lesson interactives
 
 - Location: `lessons/uNN-<slug>/interactive/<name>.html`, using the shared `lessons/_kit/widget.css` and `lessons/_kit/widget.js`. Plain HTML and ES modules, no build step, no outside libraries, works offline.
-- Embed in the lesson with an `<iframe>` whose `src` is written relative to the site page (`../lessons/uNN-<slug>/interactive/<name>.html`), followed by an "Open full screen" link written relative to the lesson file (`interactive/<name>.html`).
+- Embed in the lesson with an `<iframe>` followed by an "Open full screen" link. Write both paths relative to the lesson file (`interactive/<name>.html`), like images. The site rewrites them (issue #19), and the link checker resolves them.
 - They must work with touch at phone, tablet, and laptop widths, never autoplay when the reader prefers reduced motion, and label any simplification on screen ("Simple model: ...").
 - They are teaching models, not evidence, and must say so. Precise astronomical positions belong in Sky Lab (`site/`), which uses Astronomy Engine.
 - `lessons/_kit/widget.js` posts `{ type: 'lesson-widget-height', height }` to the parent page so the site can size each frame.

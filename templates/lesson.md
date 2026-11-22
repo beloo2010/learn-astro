@@ -26,9 +26,13 @@ status: draft              # draft | reviewed | taught
 
 - **Term:** plain definition.
 
-<iframe src="../lessons/uNN-slug/interactive/name.html" title="Interactive: what it shows" width="100%" height="880" loading="lazy" style="border:0;border-radius:8px"></iframe>
+*Embed each interactive like this (paths are relative to the lesson file):*
+
+```html
+<iframe src="interactive/name.html" title="Interactive: what it shows" width="100%" height="880" loading="lazy" style="border:0;border-radius:8px"></iframe>
 
 [Open full screen: name](interactive/name.html)
+```
 
 **Try this:** one thing to change, and one question to answer.
 
