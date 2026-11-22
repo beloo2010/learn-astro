@@ -1,0 +1,32 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Trivia bank for one unit",
+  "type": "object",
+  "required": ["unit", "title", "items"],
+  "additionalProperties": false,
+  "properties": {
+    "unit": { "type": "integer", "minimum": 0 },
+    "title": { "type": "string" },
+    "items": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["id", "lesson", "tier", "type", "question", "answer", "why", "source"],
+        "additionalProperties": false,
+        "properties": {
+          "id": { "type": "string", "pattern": "^u\\d{2}-l\\d{2}-q\\d{2}$" },
+          "lesson": { "type": "string", "pattern": "^u\\d{2}-l\\d{2}$" },
+          "tier": { "enum": ["starter", "explorer", "challenger"] },
+          "type": { "enum": ["recall", "number", "order", "explain", "predict", "demonstrate"] },
+          "question": { "type": "string" },
+          "choices": { "type": "array", "items": { "type": "string" }, "minItems": 2 },
+          "answer": { "type": "string" },
+          "why": { "type": "string" },
+          "followUp": { "type": "string" },
+          "materials": { "type": "array", "items": { "type": "string" } },
+          "source": { "type": "string" }
+        }
+      }
+    }
+  }
+}
